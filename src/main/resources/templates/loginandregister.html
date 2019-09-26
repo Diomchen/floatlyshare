@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://www.dmaku.com/demo/moban/2019091651565353/ -->
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>登录 | 注册</title>
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/dmaku.css">
+</head>
+
+<body class="vsc-initialized">
+<!--right-panel-active控制卡片的切换-->
+<div class="dowebok" id="dowebok">
+    <div class="form-container sign-up-container">
+        <form action="/loginAndRegister/register" method="post">
+            <h1>注册</h1>
+            <input type="text" placeholder="用户名" name="nickname">
+            <input type="email" placeholder="电子邮箱" name="mail">
+            <input type="password" placeholder="密码" name="password">
+            <button>注册</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="/loginAndRegister/login" method="post">
+            <h1>登录</h1>
+            <input type="email" placeholder="电子邮箱" name="mail">
+            <input type="password" placeholder="密码" name="password">
+            <a href="/loginAndRegister/forgotPassword">忘记密码？</a>
+            <button>登录</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>已有帐号？</h1>
+                <p>请使用您的帐号进行登录</p>
+                <button class="ghost" id="signIn">登录</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>没有帐号？</h1>
+                <p>立即注册加入我们，和我们一起开始旅程吧</p>
+                <button class="ghost" id="signUp">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/dmaku.js"></script>
+
+
+<span style="margin: 0px auto; border: 2px dotted rgb(0, 0, 0); position: absolute; z-index: 2147483647; visibility: hidden; left: 1564px; width: 0px; top: 394px; height: 0px;"></span><span style="z-index: 2147483647; position: absolute; visibility: hidden; left: 1549px; width: 50px; top: 379px; height: 20px; font-size: 10px; color: black;"></span></body>
+
+</html>

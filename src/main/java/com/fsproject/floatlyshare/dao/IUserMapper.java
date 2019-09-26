@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IUserMapper extends BaseMapper<User> {
     User selectUser(int id);
+    boolean insertUser(User newUser);
 }
