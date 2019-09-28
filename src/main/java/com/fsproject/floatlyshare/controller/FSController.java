@@ -18,10 +18,13 @@ public class FSController {
         return "waterFall.html";
     }
 
-    @RequestMapping("/loginAndRegister")
-    public String visitLoginAndRequest(){
+    @RequestMapping("/loginAndRegister/0")
+    public String visitLogin(){
         return "loginandregister.html";
     }
 
-
+    @RequestMapping("/loginAndRegister/1")
+    public String visitRegister(){
+        return "loginandregister.html";
+    }
 }

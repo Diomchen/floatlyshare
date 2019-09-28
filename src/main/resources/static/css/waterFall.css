@@ -12,8 +12,7 @@
 #corverage {
     width: 100%;
     height: 100%;
-    opacity: 1;
-    position: absolute;
-    background-color: green;
+    opacity: 0;
+    position: fixed;
     z-index: -1;
 }
