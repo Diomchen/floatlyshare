@@ -17,8 +17,11 @@ public class UserServiceImpl extends ServiceImpl<IUserMapper, User> implements I
     @Autowired
     private IUserMapper iUserMapper;
 
-    public User selectUser(int id){
-        return iUserMapper.selectUser(id);
+    public User selectUser(String mail){
+        Map<String,Object> columnMap = new HashMap<>();
+        columnMap.put("mail",mail);
+        List<User> batchUser = iUserMapper.selectByMap(columnMap);
+        return batchUser.get(0);
     }
 
     public boolean insertUser(User newUser) {
