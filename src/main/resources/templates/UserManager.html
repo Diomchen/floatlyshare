@@ -51,6 +51,7 @@
     <link rel="stylesheet" type="text/css" href="../a_data/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../a_data/style.css">
     <link rel="stylesheet" type="text/css" href="../a_data/simpletextrotator.css">
+    <link rel="stylesheet" href="../css/editormd.css" />
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -61,7 +62,7 @@
     <script type="text/javascript" charset="UTF-8" src="../a_data/onion.js"></script>
     <script type="text/javascript" charset="UTF-8" src="../a_data/stats.js"></script>
     <link href="../a_data/inject.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" charset="UTF-8" src="../a_data/AuthenticationService"></script>
+<!--    <script type="text/javascript" charset="UTF-8" src="../a_data/AuthenticationService"></script>-->
 </head>
 
 <body class="vsc-initialized">
@@ -401,6 +402,11 @@
                         <div class="description">
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <div id="test-editor">
+                                        <textarea style="display:none;">### 关于 Editor.md **Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
                                     <div class="map-container">
                                         <div id="map" style="width: 100%; height: 325px; position: relative; overflow: hidden;">
                                             <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
@@ -438,38 +444,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5">
 
-                                    <h3 class="title">Contact Info</h3>
-                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-map-marker"></i></span>311B, Jalalabad, Sylhet</h6>
-                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-phone"></i></span>+8801979791001</h6>
-                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-envelope"></i></span>nurealamsabbir@authlab.io</h6>
+<!--                                <div class="col-sm-5">-->
 
-                                </div>
-                                <div class="col-sm-7">
-                                    <div class="mail-container">
-                                        <div class="cnmail result">
-                                            <div class="msg success-msg"><i class="icon svg-check"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"> <path d="M16 2.688c-7.375 0-13.313 5.938-13.313 13.313s5.938 13.313 13.313 13.313c7.375 0 13.313-5.938 13.313-13.313s-5.938-13.313-13.313-13.313zM16 28.25c-6.75 0-12.25-5.5-12.25-12.25s5.5-12.25 12.25-12.25c6.75 0 12.25 5.5 12.25 12.25s-5.5 12.25-12.25 12.25zM22.688 11.25l-8.563 8.313-3-3c-0.313-0.313-0.813-0.313-1.125 0s-0.313 0.813 0 1.125l3.563 3.563c0.125 0.125 0.313 0.188 0.563 0.188 0.188 0 0.375-0.063 0.5-0.188l9.125-8.875c0.375-0.313 0.375-0.813 0.063-1.125s-0.813-0.313-1.125 0z"></path> </svg> </i><span> You email has been stored!</span></div>
-                                            <div class="msg error-msg"><i class="icon svg-close-circle"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"> <path d="M6.563 6.563c-5.188 5.188-5.188 13.688 0 18.875s13.688 5.188 18.875 0c5.188-5.188 5.188-13.625 0-18.875-5.188-5.188-13.625-5.188-18.875 0zM24.688 24.688c-4.813 4.75-12.563 4.75-17.375 0-4.75-4.813-4.75-12.563 0-17.375 4.813-4.75 12.563-4.75 17.375 0 4.75 4.813 4.75 12.563 0 17.375zM10.75 10l-0.813 0.75 5.313 5.25-5.25 5.25 0.75 0.75 5.25-5.25 5.25 5.25 0.75-0.75-5.25-5.25 5.313-5.25-0.813-0.75-5.25 5.25z"></path> </svg> </i><span> Sorry! Something went wrong!</span></div>
-                                        </div>
-                                        <h3 class="title invert">Don't Forget To Mail Me</h3>
+<!--                                    <h3 class="title">Contact Info</h3>-->
+<!--                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-map-marker"></i></span>311B, Jalalabad, Sylhet</h6>-->
+<!--                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-phone"></i></span>+8801979791001</h6>-->
+<!--                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-envelope"></i></span>nurealamsabbir@authlab.io</h6>-->
 
-                                        <form action="sendmail.php" class="form-horizontal" id="contact-form">
-                                            <div class="form-group">
-                                                <input name="name" class="form-control required" placeholder="Name" data-placement="top" type="text">
-                                            </div>
-                                            <div class="form-group">
-                                                <input name="email" class="form-control email" placeholder="Email" type="text">
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea name="message" class="form-control" placeholder="Message" rows="3"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-success">SEND</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+<!--                                </div>-->
+<!--                                <div class="col-sm-7">-->
+<!--                                    <div class="mail-container">-->
+<!--                                        <div class="cnmail result">-->
+<!--                                            <div class="msg success-msg"><i class="icon svg-check"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"> <path d="M16 2.688c-7.375 0-13.313 5.938-13.313 13.313s5.938 13.313 13.313 13.313c7.375 0 13.313-5.938 13.313-13.313s-5.938-13.313-13.313-13.313zM16 28.25c-6.75 0-12.25-5.5-12.25-12.25s5.5-12.25 12.25-12.25c6.75 0 12.25 5.5 12.25 12.25s-5.5 12.25-12.25 12.25zM22.688 11.25l-8.563 8.313-3-3c-0.313-0.313-0.813-0.313-1.125 0s-0.313 0.813 0 1.125l3.563 3.563c0.125 0.125 0.313 0.188 0.563 0.188 0.188 0 0.375-0.063 0.5-0.188l9.125-8.875c0.375-0.313 0.375-0.813 0.063-1.125s-0.813-0.313-1.125 0z"></path> </svg> </i><span> You email has been stored!</span></div>-->
+<!--                                            <div class="msg error-msg"><i class="icon svg-close-circle"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"> <path d="M6.563 6.563c-5.188 5.188-5.188 13.688 0 18.875s13.688 5.188 18.875 0c5.188-5.188 5.188-13.625 0-18.875-5.188-5.188-13.625-5.188-18.875 0zM24.688 24.688c-4.813 4.75-12.563 4.75-17.375 0-4.75-4.813-4.75-12.563 0-17.375 4.813-4.75 12.563-4.75 17.375 0 4.75 4.813 4.75 12.563 0 17.375zM10.75 10l-0.813 0.75 5.313 5.25-5.25 5.25 0.75 0.75 5.25-5.25 5.25 5.25 0.75-0.75-5.25-5.25 5.313-5.25-0.813-0.75-5.25 5.25z"></path> </svg> </i><span> Sorry! Something went wrong!</span></div>-->
+<!--                                        </div>-->
+<!--                                        <h3 class="title invert">Don't Forget To Mail Me</h3>-->
+
+<!--                                        <form action="sendmail.php" class="form-horizontal" id="contact-form">-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input name="name" class="form-control required" placeholder="Name" data-placement="top" type="text">-->
+<!--                                            </div>-->
+<!--                                            <div class="form-group">-->
+<!--                                                <input name="email" class="form-control email" placeholder="Email" type="text">-->
+<!--                                            </div>-->
+<!--                                            <div class="form-group">-->
+<!--                                                <textarea name="message" class="form-control" placeholder="Message" rows="3"></textarea>-->
+<!--                                            </div>-->
+<!--                                            <div class="form-group">-->
+<!--                                                <button type="submit" class="btn btn-success">SEND</button>-->
+<!--                                            </div>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                             </div>
                         </div>
                     </li>
@@ -604,6 +611,18 @@
     <script src="../a_data/js"></script>
     <script type="text/javascript" src="../a_data/isotope.js"></script>
     <script type="text/javascript" src="../a_data/custom.js"></script>
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../js/editormd.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var editor = editormd("test-editor", {
+                // width  : "100%",
+                // height : "100%",
+                path   : "editormd/lib/"
+            });
+        });
+    </script>
 
     <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;"><span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span></div>
 </body>
