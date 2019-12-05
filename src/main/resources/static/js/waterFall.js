@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     //获取图片路径
-    $('#grid-content div ul li').mouseover(function() {
+    $('#grid-content div ul li').mouseenter(function() {
         var img_path = $(this).find("img").attr('src')
         //载入上述路径至背景盒子
         var corv_obj = $('#corverage')
@@ -22,6 +22,7 @@ $(document).ready(function() {
             easing: 'ease',
             duration: 2000
         })
+        // $('#corverage').css({ "background-color": payload.dominant ,"opacity":1})
     })
 
     $('#grid-content div ul li').mouseout(function() {
@@ -31,7 +32,13 @@ $(document).ready(function() {
             easing: 'ease',
             duration: 3000
         })
+        // corv_obj.css({ "background-color":"#ffffff","opacity":0})
     })
+
+    // $('#grid-content div ul li a').onclick(function () {
+    //     console.log("dsdadf")
+    //     alert('success!');
+    // })
 
 
 });

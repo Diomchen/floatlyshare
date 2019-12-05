@@ -51,7 +51,8 @@
     <link rel="stylesheet" type="text/css" href="../a_data/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../a_data/style.css">
     <link rel="stylesheet" type="text/css" href="../a_data/simpletextrotator.css">
-    <link rel="stylesheet" href="../css/editormd.css" />
+<!--    <link rel="stylesheet" href="../css/editormd.css" />-->
+    <link rel="stylesheet" href="../a_data/imgupload.css" />
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -402,13 +403,8 @@
                         <div class="description">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <div id="test-editor">
-                                        <textarea style="display:none;">### 关于 Editor.md **Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。</textarea>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="map-container">
-                                        <div id="map" style="width: 100%; height: 325px; position: relative; overflow: hidden;">
+                                    <div class="map-container" style="width: 0%; height: 0px;">
+                                        <div id="map" style="width: 0%; height: 0px; position: relative; overflow: hidden;">
                                             <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
                                                 <div style="overflow: hidden;"></div>
                                                 <div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;" class="gm-style gm-china">
@@ -439,12 +435,27 @@
                                                                 <div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div>
                                                             </div>
                                                         </div>
-                                                    </div><iframe aria-hidden="true" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: medium none;" src=../a_data/a.html" frameborder="0"></iframe></div>
+                                                    </div><iframe aria-hidden="true" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: medium none;" src="a_data/a.html" frameborder="0"></iframe></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="col-sm-12">
+                                    <form>
+                                        <div class="upload imgLog3" style="border-radius:5px;">
+                                            <span><i class="glyphicon glyphicon-open" ></i>上传图片</span>
+                                        </div>
+                                        <div style="padding-top: 5px;">
+                                            <label style="font-size:200%">TiTle:</label>
+                                            <input type="text" name="title" style="background-color: transparent;border: none;border-bottom: 2px solid #000;outline: none;padding-bottom: 2px;text-align: center;width: 400px;font-size: 200%;color: #000;font-weight: 100;">
+                                        </div>
+                                        <div style="padding-top: 5px;">
+                                            <label style="font-size:200%">Content:</label><br>
+                                            <textarea style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 140px;padding: 10px;resize: none;" placeholder="👴:小🔥汁，你想说什么呐？"></textarea>
+                                            <input type="submit" class="submitButton" name="submit" style="border:0;border-radius:5px;width:135px;height: 139px;float: right; " value="发布心情⚡">
+                                        </div>
+                                    </form>
+                                </div>
 <!--                                <div class="col-sm-5">-->
 
 <!--                                    <h3 class="title">Contact Info</h3>-->
@@ -602,7 +613,7 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="../a_data/imgupload.js"></script>
     <script type="text/javascript" src="../a_data/jQueryTween-aio-min.js"></script>
     <script type="text/javascript" src="../a_data/jquery_002.js"></script>
     <script type="text/javascript" src="../a_data/progressbar.js"></script>
@@ -612,17 +623,22 @@
     <script type="text/javascript" src="../a_data/isotope.js"></script>
     <script type="text/javascript" src="../a_data/custom.js"></script>
 
-    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../js/editormd.min.js"></script>
-    <script type="text/javascript">
+    <script>
         $(function() {
-            var editor = editormd("test-editor", {
-                // width  : "100%",
-                // height : "100%",
-                path   : "editormd/lib/"
-            });
-        });
+            var img3 = new ImgUpload('.imgLog3', 500, 200, 200);
+
+            $(document).on('change', ".imgLog3 input", function(e) {
+                //模拟后台返回url
+                var url = window.URL.createObjectURL(e.target.files[0]);
+                $(this).parent().css('background', 'url(' + url + ')0% 0% / cover')
+
+                img3.setSpan(this)
+            })
+
+        })
     </script>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
 
     <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;"><span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span></div>
 </body>

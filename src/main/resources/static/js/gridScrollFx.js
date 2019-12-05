@@ -44,17 +44,20 @@
 
     function GridItem(el) {
         this.el = el;
-        this.anchor = el.querySelector('UserManager.html')
+        this.anchor = el.querySelector('a');
         this.image = el.querySelector('img');
         this.desc = el.querySelector('h3');
     }
     GridItem.prototype.addCurtain = function() {
         if (!this.image) return;
+        // console.log("Hello");
         this.curtain = document.createElement('div');
+        // console.log(this.curtain);
         this.curtain.className = 'curtain';
         var rgb = new ColorFinder(function favorHue(r, g, b) { return (Math.abs(r - g) * Math.abs(r - g) + Math.abs(r - b) * Math.abs(r - b) + Math.abs(g - b) * Math.abs(g - b)) / 65535 * 50 + 1; }).getMostProminentColor(this.image);
         if (rgb.r && rgb.g && rgb.b) { this.curtain.style.background = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')'; }
         this.anchor.appendChild(this.curtain);
+        // console.log(this.anchor);
     }
     GridItem.prototype.changeAnimationDelay = function(time) {
         if (this.curtain) {
@@ -89,12 +92,11 @@
         this.itemsCount = this.items.length;
         this.itemsRenderedCount = 0;
         this.didScroll = false;
-
-        //在这里从数据库导入数据，实现无限加载
         imagesLoaded(this.el, function() {
             classie.add(self.el, 'loaded');
             new Masonry(self.el, { itemSelector: 'li', isFitWidth: true, transitionDuration: 0 });
             self.items.forEach(function(item) {
+
                 if (inViewport(item.el)) {
                     ++self.itemsRenderedCount;
                     classie.add(item.el, 'shown');

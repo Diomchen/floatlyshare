@@ -15,3 +15,10 @@
     position: fixed;
     z-index: -1;
 }
+#alert-corverage{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    background-color: #2C7EEA;
+}
