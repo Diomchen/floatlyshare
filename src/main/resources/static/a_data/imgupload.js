@@ -9,7 +9,7 @@ function ImgUpload(node,width,height,linHeight){
 }
 
 ImgUpload.prototype.createFile = function(){
-	$(this._node).append('<input type="file"/>')
+	$(this._node).append('<input type="file" class="file"/>')
 }
 
 ImgUpload.prototype.setCss = function(){

@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Slf4j
 public class FSController {
-//
-//    @Autowired
-//    private IUserService userService;
+
 
     @RequestMapping("/")
     public String visitWaterFallPage(){

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginAndRegist {
@@ -31,8 +32,8 @@ public class LoginAndRegist {
     public String userLogin(String mail,String password,HttpServletRequest request){
         boolean isLoginSuccess = userService.loginUser(mail,password);
         User user = userService.selectUser(mail);
-        request.setAttribute("username",user.getNickname());
-        request.setAttribute("mail",mail);
+        HttpSession session = request.getSession();
+        session.setAttribute("user",user);
         if(isLoginSuccess)
             return "UserManager.html";
         else
