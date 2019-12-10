@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @Slf4j
@@ -24,5 +25,10 @@ public class FSController {
     @RequestMapping("/loginAndRegister/forgotPassword")
     public String visitForget(){
         return "forget.html";
+    }
+
+    @RequestMapping("/logined")
+    public String logined2user(){
+        return "UserManager.html";
     }
 }

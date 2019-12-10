@@ -32,12 +32,23 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="waterFall.html" class="navbar-brand">FloatingTime</a>
+                    <a href="/" class="navbar-brand">FloatingTime</a>
                 </div>
 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="text-center" href="/loginAndRegister">Login | Register</a></li>
+                        <li>
+                            <% if(session["user"]!=null) {
+                            %>
+                                <a class="text-center" href="/logined" style="color:orange">Welcome，${session["user"].nickname}!</a>
+                            <%
+                            }
+                            else{
+                            %>
+                                <a class="text-center" href="/loginAndRegister">Login | Register</a>
+                            <%
+                            }%>
+                        </li>
                     </ul>
                 </div>
             </div>
