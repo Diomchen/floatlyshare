@@ -29,7 +29,7 @@ public class PostArticleController {
         boolean success = iPostArticle.insertArticle(article);
         if(success){
             //这里应该要转向瀑布流界面
-            return "success.html";
+            return "waterFall.html";
         }
         else{
             return "error.html";

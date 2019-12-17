@@ -21,10 +21,11 @@ public class Article extends Model<Article> {
     private String content;
     private String picture;
     private String author;
-    private Date date;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date date;
+
+
 
     @Override
     protected Serializable pkVal() {

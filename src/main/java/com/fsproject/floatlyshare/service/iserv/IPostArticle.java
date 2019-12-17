@@ -9,4 +9,5 @@ public interface IPostArticle extends IService<Article> {
      boolean insertArticle(Article Article);
      List<Article> selectArticle();
      boolean selectArticleByAuthor(String authorName);
+     Article selectArticleByPicImage(String url);
 }

@@ -6,12 +6,12 @@ $(document).ready(function() {
         //载入上述路径至背景盒子
         var corv_obj = $('#corverage')
         if (img_path != "") {
-            var img = location.origin + '/' + img_path;
+            // var img = location.origin + '/' + img_path;
+            var img = img_path
             //这里更改为背景颜色
             RGBaster.colors(img, {
                 exclude: ['rgb(255,255,255)'],
                 success: function(payload) {
-                    console.log(payload.dominant);
                     corv_obj.css({ "background-color": payload.dominant })
                 }
             });

@@ -55,6 +55,31 @@ jQuery(document).ready(function($) {
     function updateQuickView(url) {
         $('.cd-quick-view .cd-slider li').removeClass('selected').find('img[src="'+oldUrl+'"]').attr('src',url).parent('li').addClass('selected');
         oldUrl = url;
+        var list = {
+            oldUrl : url
+        };
+        $.ajax({
+            url:'/article/json',
+            data:JSON.stringify(list),
+            contentType:'application/json;charset=UTF-8',
+            type:'POST',
+            success:function (res) {
+                if(res.status === 200){
+                    $("#alert-box h2").text(res.data.title);
+                    $("#alert-box p").text(res.data.content);
+                    $("#alert-box .cd-item-action li span").text("BY "+res.data.author+"   "+res.data.date);
+                    // console.log($('#alert-box h2').text())
+                }
+            },
+            error:function(XMLHttpRequest,textStatus,errorThrown){
+                if(textStatus==='timeout') {
+                    alert('請求超時');
+                    setTimeout(function () {
+                        alert('重新请求');
+                    }, 2000);
+                }
+            }
+        })
     }
 
     function resizeQuickView() {
