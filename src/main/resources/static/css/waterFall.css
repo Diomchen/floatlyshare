@@ -4,21 +4,12 @@
 }
 
 #grid-content {
-    width: 80%;
+    /*width: 80%;*/
     position: relative;
     margin-top: 2%;
 }
-
-#corverage {
+.cover{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: fixed;
-    z-index: -1;
-}
-#alert-corverage{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 0;
-    background-color: #2C7EEA;
 }

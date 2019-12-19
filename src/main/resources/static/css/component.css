@@ -26,7 +26,8 @@
     overflow: hidden;
     width: 314px;
     text-align: left;
-    vertical-align: top
+    vertical-align: top;
+
 }
 
 .js .grid li {

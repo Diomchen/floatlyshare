@@ -28,8 +28,6 @@ public class PostArticleController {
         Article article = new Article(title, content, url, user.getNickname());
         boolean success = iPostArticle.insertArticle(article);
         if(success){
-            //这里应该要转向瀑布流界面
-//            return "waterFall.html";
             return "redirect:/";
         }
         else{
