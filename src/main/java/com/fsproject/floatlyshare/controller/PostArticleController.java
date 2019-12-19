@@ -29,7 +29,8 @@ public class PostArticleController {
         boolean success = iPostArticle.insertArticle(article);
         if(success){
             //这里应该要转向瀑布流界面
-            return "waterFall.html";
+//            return "waterFall.html";
+            return "redirect:/";
         }
         else{
             return "error.html";
