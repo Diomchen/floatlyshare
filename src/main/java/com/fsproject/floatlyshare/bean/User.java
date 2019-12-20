@@ -21,9 +21,6 @@ public class User extends Model<User> {
     private String nickname;
     private String mail;
     private String password;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-
 
     @Override
     protected Serializable pkVal() {

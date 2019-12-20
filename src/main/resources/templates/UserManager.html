@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
 <!--<![endif]-->
@@ -14,7 +17,7 @@
             background-color: rgba(0, 0, 0, 0.45);
             text-align: center
         }
-        
+
         .gm-style-pbt {
             font-size: 22px;
             color: white;
@@ -31,7 +34,7 @@
         .gm-style img {
             max-width: none;
         }
-        
+
         .gm-style {
             font: 400 11px Roboto, Arial, sans-serif;
             text-decoration: none;
@@ -50,10 +53,10 @@
     <link rel="stylesheet" type="text/css" href="../a_data/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="../a_data/style.css">
     <link rel="stylesheet" type="text/css" href="../a_data/simpletextrotator.css">
-<!--    <link rel="stylesheet" href="../css/editormd.css" />-->
-    <link rel="stylesheet" href="../a_data/imgupload.css" />
+    <!--    <link rel="stylesheet" href="../css/editormd.css" />-->
+    <link rel="stylesheet" href="../a_data/imgupload.css"/>
     <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="../a_data/jquery.js"></script>
     <script type="text/javascript" charset="UTF-8" src="../a_data/common.js"></script>
@@ -66,409 +69,468 @@
 
 <body class="vsc-initialized">
 
-    <div class="loading-screen" style="display: none;"></div>
-    <div id="frontpage" style="top: 266px;">
-        <div class="shadow-img"></div>
-        <img src="../a_data/front-image.jfif" class="front-img img-responsive" alt="Front-image">
-        <h1>I AM <span class="invert">${session["user"].nickname}</span></h1>
-        <div class="frontclick active"><img src="../a_data/click.png" alt="" class="img-responsive"><span class="pulse"></span></div>
-    </div>
+<div class="loading-screen" style="display: none;"></div>
+<div id="frontpage" style="top: 266px;">
+    <div class="shadow-img"></div>
+    <img src="../a_data/front-image.jfif" class="front-img img-responsive" alt="Front-image">
+    <h1>I AM <span class="invert">${session["user"].nickname}</span></h1>
+    <div class="frontclick active"><img src="../a_data/click.png" alt="" class="img-responsive"><span
+            class="pulse"></span></div>
+</div>
 
 
-    <div class="container">
-        <div id="content" class="row hidden" style="top: 465px;">
-            <div class="col-sm-4">
+<div class="container">
+    <div id="content" class="row hidden" style="top: 465px;">
+        <div class="col-sm-4">
 
-                <div id="namecard" class="namecard">
-                    <div class="shadow-img"></div>
-                    <h1 class="maintitle">I AM <span class="invert">${session["user"].nickname}</span></h1>
-                    <h3 class="invert sub-maintitle">Life
-                        <span class="rotate"><span class="rotating flip up" style="display: inline-block; transform: rotateX(-180deg);"><span class="front"> is </span><span class="back"> fantastic!</span></span>
+            <div id="namecard" class="namecard">
+                <div class="shadow-img"></div>
+                <h1 class="maintitle">I AM <span class="invert">${session["user"].nickname}</span></h1>
+                <h3 class="invert sub-maintitle">Life
+                    <span class="rotate"><span class="rotating flip up"
+                                               style="display: inline-block; transform: rotateX(-180deg);"><span
+                            class="front"> is </span><span class="back"> fantastic!</span></span>
                         </span>
-                    </h3>
-                    <img id="profile-img" class="profile-img transparent" src="../a_data/profile-thum.png" alt="profile-image">
-                </div>
+                </h3>
+                <img id="profile-img" class="profile-img transparent" src="../a_data/profile-thum.png"
+                     alt="profile-image">
+            </div>
 
-                <div id="menu-container">
+            <div id="menu-container">
 
-                    <ul class="nav-menu no-padding">
-                        <li class="nav-btn selected" title="Home" data-page="home">
-                            <div class="hover-background"></div>
-                            <span>Info</span><i class="fa fa-user fa-fw"></i>
-                        </li>
-                        <li class="nav-btn folio-btn" data-filter="*" title="Portfolio" data-page="portfolio">
-                            <div class="hover-background"></div>
-                            <span>Favorite</span><i class="fa fa-file-text fa-fw"></i>
-                        </li>
-                        <li class="nav-btn" title="Contact" id="contact-link" data-page="contact">
-                            <div class="hover-background"></div>
-                            <span>Let's Share!</span><i class="fa fa-pencil fa-fw"></i>
-                        </li>
+                <ul class="nav-menu no-padding">
+                    <li class="nav-btn selected" title="Home" data-page="home">
+                        <div class="hover-background"></div>
+                        <span>Info</span><i class="fa fa-user fa-fw"></i>
+                    </li>
+                    <li class="nav-btn folio-btn" data-filter="*" title="Portfolio" data-page="portfolio">
+                        <div class="hover-background"></div>
+                        <span>Favorite</span><i class="fa fa-file-text fa-fw"></i>
+                    </li>
+                    <li class="nav-btn" title="Contact" id="contact-link" data-page="contact">
+                        <div class="hover-background"></div>
+                        <span>Let's Share!</span><i class="fa fa-pencil fa-fw"></i>
+                    </li>
+                </ul>
+
+                <div class="social-menu-container">
+                    <ul class="social-menu no-padding">
+                        <li><a href="javascript:;"><i class="fa fa-github"></i></a></li>
+                        <li><a href="javascript:;"><i class="fa fa-qq"></i></a></li>
+                        <li><a href="javascript:;"><i class="fa fa-weibo"></i></a></li>
                     </ul>
-
-                    <div class="social-menu-container">
-                        <ul class="social-menu no-padding">
-                            <li><a href="javascript:;"><i class="fa fa-github"></i></a></li>
-                            <li><a href="javascript:;"><i class="fa fa-qq"></i></a></li>
-                            <li><a href="javascript:;"><i class="fa fa-weibo"></i></a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
-            <div class="col-sm-8 page-segment">
-                <ul class="page-container no-padding">
+        </div>
+        <div class="col-sm-8 page-segment">
+            <ul class="page-container no-padding">
 
-                    <li id="home" class="selected">
-                        <div class="title-container hidden">
-                            <div class="shadow-img"></div>
-                            <h2 class="rotate-out">Welcome To <span class="invert">My Profile</span></h2>
+                <li id="home" class="selected">
+                    <div class="title-container hidden">
+                        <div class="shadow-img"></div>
+                        <h2 class="rotate-out">Welcome To <span class="invert">My Profile</span></h2>
+                    </div>
+                    <div class="description hidden">
+                        <div class="watermark-home"></div>
+                        <div class="fade-text transparent">
+
+                            <div class="strong-text">Hello, I am <span>${session["user"].nickname}</span></div>
+                            <div class="focus-text"><span>Web Developer &amp; </span><span>Web Designer</span></div>
+                            <p class="large-paragraph">I have ten years experience as a web/interface designer.I have a
+                                love of clean, elegant styling. I have lots of experience in the production of CSS and
+                                HTML for modern websites.
+                            </p>
+
                         </div>
-                        <div class="description hidden">
-                            <div class="watermark-home"></div>
-                            <div class="fade-text transparent">
 
-                                <div class="strong-text">Hello, I am <span>${session["user"].nickname}</span></div>
-                                <div class="focus-text"><span>Web Developer &amp; </span><span>Web Designer</span></div>
-                                <p class="large-paragraph">I have ten years experience as a web/interface designer.I have a love of clean, elegant styling. I have lots of experience in the production of CSS and HTML for modern websites.
-                                </p>
+                        <h3 class="personal-info-title title">Personal Info</h3>
+                        <ul class="personal-info">
+                            <li class="rotate-out rotated"><label>Name</label><span>Anderson smith</span></li>
+                            <li class="rotate-out rotated">
+                                <label>Address</label><span>Melbourne Victoria 3000 Australia</span></li>
+                            <li class="rotate-out rotated"><label>Email</label><span>${session["user"].mail}</span></li>
+                            <li class="rotate-out rotated"><label>Phone</label><span>+8801979791001</span></li>
+                        </ul>
+                    </div>
+                </li>
 
+                <li id="resume" class="hidden">
+                    <div class="title-container">
+                        <div class="shadow-img"></div>
+                        <h2 class="rotate-out rotated"><span class="invert">Like</span></h2>
+                    </div>
+                    <div class="description">
+                        <div class="tabs tabs_animate">
+                            <!--                                +++++++++++++++++++++++++++++++++++++++++++++这里不知道加什么功能-->
+                        </div>
+                    </div>
+                </li>
+
+
+                <li id="portfolio" class="hidden">
+                    <div class="title-container">
+                        <div class="shadow-img"></div>
+                        <h2 class="rotate-out rotated">Favorite</h2>
+                    </div>
+
+                    <div class="abs-child">
+                        <ul class="button-group filters-button-group">
+<!--                            <li class="button is-checked" data-filter="*">Show All</li>-->
+<!--                            <li class="button" data-filter=".photography">Photography</li>-->
+<!--                            <li class="button" data-filter=".commercial">Commercial</li>-->
+<!--                            <li class="button" data-filter=".potrait">Potrait</li>-->
+                        </ul>
+                    </div>
+                    <div class="sec-porfolio description">
+                        <div class="row">
+
+                            <div class="folio-container">
+                                <ul class="folio-item" style="position: relative; height: 1216px;">
+                                    <% if(has(articles)){
+                                    for(article in articles){ %>
+                                    <li class="view view-first photography"
+                                        style="position: absolute; left: 0px; top: 0px;">
+                                        <img src="${article.picture!}" alt="articles">
+                                        <div class="mask">
+                                            <h2>${article.title!}</h2>
+
+                                            <a role="button" class="info"  data-target="#myModal"
+                                               onclick="Detail('${article.title!}','${article.picture!}','${article.content!}')">Read
+                                                More</a>
+                                        </div>
+                                    </li>
+                                    <%
+                                    }
+                                    } %>
+                                    <!--                                        <li class="view view-second commercial" style="position: absolute; left: 0px; top: 152px;">-->
+                                    <!--                                            <img src="../a_data/book.jfif" alt="book">-->
+                                    <!--                                            <div class="mask"></div>-->
+                                    <!--                                            <div class="content">-->
+                                    <!--                                                <h2>Hover Style #2</h2>-->
+                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal2">Read More</a>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li class="view view-tenth photography" style="position: absolute; left: 0px; top: 304px;">-->
+                                    <!--                                            <img src="../a_data/beach.jfif" alt="beach">-->
+                                    <!--                                            <div class="mask">-->
+                                    <!--                                                <h2>New York</h2>-->
+                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal5">Read More</a>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li class="view view-second commercial" style="position: absolute; left: 0px; top: 456px;">-->
+                                    <!--                                            <img src="../a_data/guy.jfif" alt="guy">-->
+                                    <!--                                            <div class="mask"></div>-->
+                                    <!--                                            <div class="content">-->
+                                    <!--                                                <h2>Image Name</h2>-->
+                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal3">Read More</a>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li class="view view-first potrait" style="position: absolute; left: 0px; top: 608px;">-->
+                                    <!--                                            <img src="../a_data/illustration.jfif" alt="illustration">-->
+                                    <!--                                            <div class="mask">-->
+                                    <!--                                                <h2>New York</h2>-->
+                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal4">Read More</a>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li class="view view-second photography" style="position: absolute; left: 0px; top: 760px;">-->
+                                    <!--                                            <img src="../a_data/guy.jfif" alt="guy">-->
+                                    <!--                                            <div class="mask"></div>-->
+                                    <!--                                            <div class="content">-->
+                                    <!--                                                <h2>Image Name</h2>-->
+                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal3">Read More</a>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li class="view view-tenth potrait" style="position: absolute; left: 0px; top: 912px;">-->
+                                    <!--                                            <img src="../a_data/logs.jfif" alt="logs">-->
+                                    <!--                                            <div class="mask">-->
+                                    <!--                                                <h2>woodsman</h2>-->
+                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal">Read More</a>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </li>-->
+                                    <!--                                        <li class="view view-tenth commercial" style="position: absolute; left: 0px; top: 1064px;">-->
+                                    <!--                                            <img src="../a_data/beach.jfif" alt="beach">-->
+                                    <!--                                            <div class="mask">-->
+                                    <!--                                                <h2>New York</h2>-->
+                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal5">Read More</a>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </li>-->
+                                </ul>
                             </div>
 
-                            <h3 class="personal-info-title title">Personal Info</h3>
-                            <ul class="personal-info">
-                                <li class="rotate-out rotated"><label>Name</label><span>Anderson smith</span></li>
-                                <li class="rotate-out rotated"><label>Address</label><span>Melbourne Victoria 3000 Australia</span></li>
-                                <li class="rotate-out rotated"><label>Email</label><span>${session["user"].mail}</span></li>
-                                <li class="rotate-out rotated"><label>Phone</label><span>+8801979791001</span></li>
-                            </ul>
                         </div>
-                    </li>
+                    </div>
+                </li>
 
-                    <li id="resume" class="hidden">
-                        <div class="title-container">
-                            <div class="shadow-img"></div>
-                            <h2 class="rotate-out rotated"><span class="invert">Like</span></h2>
-                        </div>
-                        <div class="description">
-                            <div class="tabs tabs_animate">
-<!--                                +++++++++++++++++++++++++++++++++++++++++++++这里不知道加什么功能-->
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li id="portfolio" class="hidden">
-                        <div class="title-container">
-                            <div class="shadow-img"></div>
-                            <h2 class="rotate-out rotated">Favorite</h2>
-                        </div>
-
-                        <div class="abs-child">
-                            <ul class="button-group filters-button-group">
-                                <li class="button is-checked" data-filter="*">Show All</li>
-                                <li class="button" data-filter=".photography">Photography</li>
-                                <li class="button" data-filter=".commercial">Commercial</li>
-                                <li class="button" data-filter=".potrait">Potrait</li>
-                            </ul>
-                        </div>
-                        <div class="sec-porfolio description">
-                            <div class="row">
-
-                                <div class="folio-container">
-                                    <ul class="folio-item" style="position: relative; height: 1216px;">
-                                        <li class="view view-first photography" style="position: absolute; left: 0px; top: 0px;">
-                                            <img src="../a_data/logs.jfif" alt="logs">
-                                            <div class="mask">
-                                                <h2>woodsman</h2>
-
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal">Read More</a>
-                                            </div>
-                                        </li>
-                                        <li class="view view-second commercial" style="position: absolute; left: 0px; top: 152px;">
-                                            <img src="../a_data/book.jfif" alt="book">
-                                            <div class="mask"></div>
-                                            <div class="content">
-                                                <h2>Hover Style #2</h2>
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal2">Read More</a>
-                                            </div>
-                                        </li>
-                                        <li class="view view-tenth photography" style="position: absolute; left: 0px; top: 304px;">
-                                            <img src="../a_data/beach.jfif" alt="beach">
-                                            <div class="mask">
-                                                <h2>New York</h2>
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal5">Read More</a>
-                                            </div>
-                                        </li>
-                                        <li class="view view-second commercial" style="position: absolute; left: 0px; top: 456px;">
-                                            <img src="../a_data/guy.jfif" alt="guy">
-                                            <div class="mask"></div>
-                                            <div class="content">
-                                                <h2>Image Name</h2>
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal3">Read More</a>
-                                            </div>
-                                        </li>
-                                        <li class="view view-first potrait" style="position: absolute; left: 0px; top: 608px;">
-                                            <img src="../a_data/illustration.jfif" alt="illustration">
-                                            <div class="mask">
-                                                <h2>New York</h2>
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal4">Read More</a>
-                                            </div>
-                                        </li>
-                                        <li class="view view-second photography" style="position: absolute; left: 0px; top: 760px;">
-                                            <img src="../a_data/guy.jfif" alt="guy">
-                                            <div class="mask"></div>
-                                            <div class="content">
-                                                <h2>Image Name</h2>
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal3">Read More</a>
-                                            </div>
-                                        </li>
-                                        <li class="view view-tenth potrait" style="position: absolute; left: 0px; top: 912px;">
-                                            <img src="../a_data/logs.jfif" alt="logs">
-                                            <div class="mask">
-                                                <h2>woodsman</h2>
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal">Read More</a>
-                                            </div>
-                                        </li>
-                                        <li class="view view-tenth commercial" style="position: absolute; left: 0px; top: 1064px;">
-                                            <img src="../a_data/beach.jfif" alt="beach">
-                                            <div class="mask">
-                                                <h2>New York</h2>
-                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal5">Read More</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </li>
-
-                    <li id="contact" class="hidden">
-                        <div class="title-container">
-                            <div class="shadow-img"></div>
-                            <h2 class="rotate-out rotated">Let's Share!</h2>
-                        </div>
-                        <div class="description">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="map-container" style="width: 0%; height: 0px;">
-                                        <div id="map" style="width: 0%; height: 0px; position: relative; overflow: hidden;">
-                                            <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
-                                                <div style="overflow: hidden;"></div>
-                                                <div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;" class="gm-style gm-china">
-                                                    <div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;http://maps.gstatic.cn/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;" tabindex="0">
-                                                        <div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px);">
-                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
-                                                                <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-                                                                    <div style="position: absolute; z-index: 989; transform: matrix(1, 0, 0, 1, -15, -101);">
-                                                                        <div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;">
-                                                                            <div style="width: 256px; height: 256px;"></div>
-                                                                        </div>
+                <li id="contact" class="hidden">
+                    <div class="title-container">
+                        <div class="shadow-img"></div>
+                        <h2 class="rotate-out rotated">Let's Share!</h2>
+                    </div>
+                    <div class="description">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="map-container" style="width: 0%; height: 0px;">
+                                    <div id="map" style="width: 0%; height: 0px; position: relative; overflow: hidden;">
+                                        <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                                            <div style="overflow: hidden;"></div>
+                                            <div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"
+                                                 class="gm-style gm-china">
+                                                <div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;http://maps.gstatic.cn/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;"
+                                                     tabindex="0">
+                                                    <div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px);">
+                                                        <div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
+                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
+                                                                <div style="position: absolute; z-index: 989; transform: matrix(1, 0, 0, 1, -15, -101);">
+                                                                    <div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;">
+                                                                        <div style="width: 256px; height: 256px;"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div>
-                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div>
-                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"></div>
-                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 0;"></div>
                                                         </div>
-                                                        <div style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;" class="gm-style-pbc">
-                                                            <p class="gm-style-pbt"></p>
+                                                        <div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div>
+                                                        <div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div>
+                                                        <div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"></div>
+                                                        <div style="position: absolute; left: 0px; top: 0px; z-index: 0;"></div>
+                                                    </div>
+                                                    <div style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;"
+                                                         class="gm-style-pbc">
+                                                        <p class="gm-style-pbt"></p>
+                                                    </div>
+                                                    <div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;">
+                                                        <div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px);">
+                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div>
+                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div>
+                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div>
+                                                            <div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div>
                                                         </div>
-                                                        <div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;">
-                                                            <div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px);">
-                                                                <div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div>
-                                                                <div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div>
-                                                                <div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div>
-                                                                <div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div><iframe aria-hidden="true" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: medium none;" src="a_data/a.html" frameborder="0"></iframe></div>
+                                                    </div>
+                                                </div>
+                                                <iframe aria-hidden="true"
+                                                        style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: medium none;"
+                                                        src="a_data/a.html" frameborder="0"></iframe>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-12">
-                                    <form action="/PostArticle" method="POST">
-                                        <div class="upload imgLog3" style="border-radius:5px;">
-                                            <span><i class="glyphicon glyphicon-open" ></i>上传图片</span>
-                                        </div>
-                                        <div style="padding-top: 5px;">
-                                            <label style="font-size:200%">TiTle:</label>
-                                            <input type="text" name="title" style="background-color: transparent;border: none;border-bottom: 2px solid #000;outline: none;padding-bottom: 2px;text-align: center;width: 400px;font-size: 200%;color: #000;font-weight: 100;">
-                                        </div>
-                                        <div style="padding-top: 5px;">
-                                            <input type="hidden" class="Url" name="url" value="">
-                                            <label style="font-size:200%">Content:</label><br>
-                                            <textarea style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 140px;padding: 10px;resize: none;" placeholder="👴:小🔥汁，你想说什么呐？" name="content"></textarea>
-                                            <input type="submit" class="submitButton" style="border:0;border-radius:5px;width:135px;height: 139px;float: right; " value="发布心情⚡">
-                                        </div>
-                                    </form>
-                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <form action="/PostArticle" method="POST">
+                                    <div class="upload imgLog3" style="border-radius:5px;">
+                                        <span><i class="glyphicon glyphicon-open"></i>上传图片</span>
+                                    </div>
+                                    <div style="padding-top: 5px;">
+                                        <label style="font-size:200%">TiTle:</label>
+                                        <input type="text" name="title"
+                                               style="background-color: transparent;border: none;border-bottom: 2px solid #000;outline: none;padding-bottom: 2px;text-align: center;width: 400px;font-size: 200%;color: #000;font-weight: 100;">
+                                    </div>
+                                    <div style="padding-top: 5px;">
+                                        <input type="hidden" class="Url" name="url" value="">
+                                        <label style="font-size:200%">Content:</label><br>
+                                        <textarea
+                                                style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 140px;padding: 10px;resize: none;"
+                                                placeholder="👴:小🔥汁，你想说什么呐？" name="content"></textarea>
+                                        <input type="submit" class="submitButton"
+                                               style="border:0;border-radius:5px;width:135px;height: 139px;float: right; "
+                                               value="发布心情⚡">
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </li>
+                    </div>
+                </li>
+            </ul>
+            <div class="row mobile-nav-container">
+
+                <ul class="mobile-social no-padding">
+                    <li>Connect With Me</li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
-                <div class="row mobile-nav-container">
-
-                    <ul class="mobile-social no-padding">
-                        <li>Connect With Me</li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
             </div>
-
         </div>
+
     </div>
-    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel3">Hover Style</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="../a_data/guy.jfif" class="img-responsive" alt="modal-image">
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ratione quae, alias at. Reprehenderit, ut quis corporis laudantium, laborum sed omnis qui perspiciatis explicabo. Ipsum culpa aspernatur dolorem. Amet, quis.</p>
-                    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <input type="hidden" id="modal_title">
+        <input type="hidden" id="modal_picture">
+        <input type="hidden" id="modal_content">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Hover Style</h4>
+            </div>
+            <div class="modal-body">
+                <img src="../a_data/guy.jfif" class="img-responsive" alt="modal-image">
+            </div>
+            <div class="modal-footer">
+                <div class="mf-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ratione quae, alias at.
+                        Reprehenderit, ut quis corporis laudantium, laborum sed omnis qui perspiciatis explicabo. Ipsum
+                        culpa aspernatur dolorem. Amet, quis.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel4">Hover Style</h4>
-                </div>
-                <div class="modal-body">
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ab id unde veniam error et iste ut aspernatur accusantium porro molestiae voluptatibus rem, tempore inventore ad minus soluta praesentium magni?</p>
-                    </div>
+</div>
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel4">Hover Style</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <div class="mf-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ab id unde veniam error et
+                        iste ut aspernatur accusantium porro molestiae voluptatibus rem, tempore inventore ad minus
+                        soluta praesentium magni?</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel5">Hover Style</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="../a_data/beach.jfif" class="img-responsive" alt="modal-image">
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam amet placeat porro, maxime corrupti laboriosam, quod nulla perferendis esse ipsa atque deleniti. Magni molestias, nemo illum eos, exercitationem neque incidunt.</p>
-                    </div>
+</div>
+<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel5">Hover Style</h4>
+            </div>
+            <div class="modal-body">
+                <img src="../a_data/beach.jfif" class="img-responsive" alt="modal-image">
+            </div>
+            <div class="modal-footer">
+                <div class="mf-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam amet placeat porro, maxime
+                        corrupti laboriosam, quod nulla perferendis esse ipsa atque deleniti. Magni molestias, nemo
+                        illum eos, exercitationem neque incidunt.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="subscribe_modal_1" tabindex="-1" role="dialog" aria-labelledby="subscribe_modal_1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h2 class="modal-title">Thank You</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center mail-sucsess">
-                        <h3> <span>your mail has been sent</span></h3>
-                    </div>
+</div>
+<div class="modal fade" id="subscribe_modal_1" tabindex="-1" role="dialog" aria-labelledby="subscribe_modal_1"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h2 class="modal-title">Thank You</h2>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mail-sucsess">
+                    <h3><span>your mail has been sent</span></h3>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../a_data/imgupload.js"></script>
-    <script type="text/javascript" src="../a_data/jQueryTween-aio-min.js"></script>
-    <script type="text/javascript" src="../a_data/jquery_002.js"></script>
-    <script type="text/javascript" src="../a_data/progressbar.js"></script>
-    <script type="text/javascript" src="../a_data/jquery_003.js"></script>
-    <script type="text/javascript" src="../a_data/bootstrap.js"></script>
-    <script src="../a_data/js"></script>
-    <script type="text/javascript" src="../a_data/isotope.js"></script>
-    <script type="text/javascript" src="../a_data/custom.js"></script>
+</div>
+<script type="text/javascript" src="../a_data/imgupload.js"></script>
+<script type="text/javascript" src="../a_data/jQueryTween-aio-min.js"></script>
+<script type="text/javascript" src="../a_data/jquery_002.js"></script>
+<script type="text/javascript" src="../a_data/progressbar.js"></script>
+<script type="text/javascript" src="../a_data/jquery_003.js"></script>
 
-    <script>
-        $(function() {
-            var img3 = new ImgUpload('.imgLog3', 500, 200, 200);
+<script src="../a_data/js"></script>
+<script type="text/javascript" src="../a_data/isotope.js"></script>
+<script type="text/javascript" src="../a_data/custom.js"></script>
 
-            var formData = new FormData();
+<script>
+    $(function () {
+        var img3 = new ImgUpload('.imgLog3', 500, 200, 200);
 
-            $(document).on('change', ".imgLog3 input", function(e) {
-                var inputButton = $(this);
-                var imgFile = e.target.files;
-                formData.append('smfile', imgFile[0]);
-                var authorizationKey = null;
-                if(imgFile.length&&imgFile[0].size < (5*1024*1024)){
-                    var apiTokenUrl = 'https://sm.ms/api/v2/token';
-                    var tokensetting = {
-                        url: apiTokenUrl,
-                        type: "post",
-                        data: {
-                            "username": "diomchen",
-                            "password": "csh66666",
-                        },
-                        success: function (response) {
-                            var res = JSON.parse(response);
+        var formData = new FormData();
 
-                            if (res.success) {
-                                var token = res.data.token;
-                                var apiUrl = 'https://sm.ms/api/v2/upload';
-                                var settings = {
-                                    url: apiUrl,
-                                    type: "post",
-                                    contentType: false,
-                                    processData: false,
-                                    data: formData,
-                                    beforeSend: function () {
-                                        console.log("上传中...");
-                                    },
-                                    success: function (response) {
-                                        var res = JSON.parse(response);
-                                        var url = (!!res.data && res.data.url) || res.images;
-                                        $(".file").parent().css('background', 'url(' + url.toString() + ') 0% 0% / cover');
-                                        // $('.url').innerText = url.toString();
-                                        $(".file").parent().nextAll()[1].children[0].value=url.toString();
-                                        // console.log();
-                                        img3.setSpan('.file');
-                                    },
-                                    error: function (err) {
-                                        console.log(err);
-                                    }
-                                };
-                                $.ajax(settings);
-                            }
-                        },
-                        error: function (e) {
-                            console.log(e);
+        $(document).on('change', ".imgLog3 input", function (e) {
+            var inputButton = $(this);
+            var imgFile = e.target.files;
+            formData.append('smfile', imgFile[0]);
+            var authorizationKey = null;
+            if (imgFile.length && imgFile[0].size < (5 * 1024 * 1024)) {
+                var apiTokenUrl = 'https://sm.ms/api/v2/token';
+                var tokensetting = {
+                    url: apiTokenUrl,
+                    type: "post",
+                    data: {
+                        "username": "diomchen",
+                        "password": "csh66666",
+                    },
+                    success: function (response) {
+                        var res = JSON.parse(response);
+
+                        if (res.success) {
+                            var token = res.data.token;
+                            var apiUrl = 'https://sm.ms/api/v2/upload';
+                            var settings = {
+                                url: apiUrl,
+                                type: "post",
+                                contentType: false,
+                                processData: false,
+                                data: formData,
+                                beforeSend: function () {
+                                    console.log("上传中...");
+                                },
+                                success: function (response) {
+                                    var res = JSON.parse(response);
+                                    var url = (!!res.data && res.data.url) || res.images;
+                                    $(".file").parent().css('background', 'url(' + url.toString() + ') 0% 0% / cover');
+                                    // $('.url').innerText = url.toString();
+                                    $(".file").parent().nextAll()[1].children[0].value = url.toString();
+                                    // console.log();
+                                    img3.setSpan('.file');
+                                },
+                                error: function (err) {
+                                    console.log(err);
+                                }
+                            };
+                            $.ajax(settings);
                         }
-                    };
+                    },
+                    error: function (e) {
+                        console.log(e);
+                    }
+                };
 
-                    $.ajax(tokensetting);
-                }
-                else
-                    return false;
-            })
+                $.ajax(tokensetting);
+            } else
+                return false;
         })
-    </script>
-    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
-
-    <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;"><span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span></div>
+    })
+</script>
+<script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../a_data/bootstrap.js"></script>
+<script>
+    //绑定模态框展示的方法
+    window.Detail = function (title,picture,content) {
+        $("#modal_title").val(title);
+        $("#modal_picture").val(picture);
+        $("#modal_content").val(content);
+        $('#myModal').modal('show');
+    };
+    $('#myModal').on('show.bs.modal', function (event) {
+        var modal_title = $("#modal_title").val();
+        var modal_picture = $("#modal_picture").val();
+        var modal_content = $("#modal_content").val();
+        var modal = $(this);  //get modal itself
+        modal.find('.modal-header h4').text(modal_title);
+        modal.find('.modal-body img').attr("src", modal_picture);
+        modal.find('.modal-footer p').text(modal_content);
+    });
+</script>
+<div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;">
+    <span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span>
+</div>
 </body>
 
 </html>

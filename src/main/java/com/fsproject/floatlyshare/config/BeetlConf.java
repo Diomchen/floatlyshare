@@ -1,4 +1,4 @@
-package com.fsproject.floatlyshare;
+package com.fsproject.floatlyshare.config;
 
 import org.beetl.core.resource.ClasspathResourceLoader;
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration;
