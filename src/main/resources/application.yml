@@ -3,7 +3,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/fsbody?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
     username: root
-    password: csh66666
+    password: root
     platform: mysql
     type: com.alibaba.druid.pool.DruidDataSource
     #druid配置

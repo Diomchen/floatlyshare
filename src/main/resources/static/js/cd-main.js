@@ -1,29 +1,29 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     //final width --> this is the quick view image slider width
     //maxQuickWidth --> this is the max-width of the quick-view panel
     var sliderFinalWidth = 400,
         maxQuickWidth = 900;
 
     //open the quick view panel
-    $('.cd-trigger').on('click', function(event) {
+    $('.cd-trigger').on('click', function (event) {
         var selectedImage = $(this).children('img'),
             slectedImageUrl = selectedImage.attr('src');
-
+        var id = $(this).children('input').val();
         $('body').addClass('overlay-layer');
         animateQuickView(selectedImage, sliderFinalWidth, maxQuickWidth, 'open');
 
         //update the visible slider image in the quick view panel
         //you don't need to implement/use the updateQuickView if retrieving the quick view data with ajax
-        updateQuickView(slectedImageUrl);
+        updateQuickView(slectedImageUrl, id);
     });
 
     //close the quick view panel
-    $('body').on('click', function(event) {
+    $('body').on('click', function (event) {
         if ($(event.target).is('.cd-close') || $(event.target).is('body.overlay-layer')) {
             closeQuickView(sliderFinalWidth, maxQuickWidth);
         }
     });
-    $(document).keyup(function(event) {
+    $(document).keyup(function (event) {
         //check if user has pressed 'Esc'
         if (event.which == '27') {
             closeQuickView(sliderFinalWidth, maxQuickWidth);
@@ -36,7 +36,7 @@ jQuery(document).ready(function($) {
     // });
 
     //center quick-view on window resize
-    $(window).on('resize', function() {
+    $(window).on('resize', function () {
         if ($('.cd-quick-view').hasClass('is-visible')) {
             window.requestAnimationFrame(resizeQuickView);
         }
@@ -46,33 +46,41 @@ jQuery(document).ready(function($) {
         var sliderConatiner = navigation.parents('.cd-slider-wrapper').find('.cd-slider'),
             activeSlider = sliderConatiner.children('.selected').removeClass('selected');
         if (navigation.hasClass('cd-next')) {
-            (!activeSlider.is(':last-child')) ? activeSlider.next().addClass('selected'): sliderConatiner.children('li').eq(0).addClass('selected');
+            (!activeSlider.is(':last-child')) ? activeSlider.next().addClass('selected') : sliderConatiner.children('li').eq(0).addClass('selected');
         } else {
-            (!activeSlider.is(':first-child')) ? activeSlider.prev().addClass('selected'): sliderConatiner.children('li').last().addClass('selected');
+            (!activeSlider.is(':first-child')) ? activeSlider.prev().addClass('selected') : sliderConatiner.children('li').last().addClass('selected');
         }
     }
-    var oldUrl="";
-    function updateQuickView(url) {
-        $('.cd-quick-view .cd-slider li').removeClass('selected').find('img[src="'+oldUrl+'"]').attr('src',url).parent('li').addClass('selected');
+
+    var oldUrl = "";
+
+    function updateQuickView(url, id) {
+        $('.cd-quick-view .cd-slider li').removeClass('selected').find('img[src="' + oldUrl + '"]').attr('src', url).parent('li').addClass('selected');
         oldUrl = url;
         var list = {
-            oldUrl : url
+            id: id
         };
         $.ajax({
-            url:'/article/json',
-            data:JSON.stringify(list),
-            contentType:'application/json;charset=UTF-8',
-            type:'POST',
-            success:function (res) {
-                if(res.status === 200){
+            url: '/article/json',
+            data: JSON.stringify(list),
+            contentType: 'application/json;charset=UTF-8',
+            type: 'POST',
+            success: function (res) {
+                if (res.status === 200) {
+                    $("#alert-box input").val(res.data.id);
                     $("#alert-box h2").text(res.data.title);
                     $("#alert-box p").text(res.data.content);
-                    $("#alert-box .cd-item-action li span").text("BY "+res.data.author+"   "+res.data.date);
+                    $("#alert-box .cd-item-action li span").text("BY " + res.data.author + "   " + res.data.date);
                     // console.log($('#alert-box h2').text())
+                    if (res.alreadyAdded) {
+                        $("#alert-box ul li button").text("already Added");
+                    } else {
+                        $("#alert-box ul li button").text("Add to cart");
+                    }
                 }
             },
-            error:function(XMLHttpRequest,textStatus,errorThrown){
-                if(textStatus==='timeout') {
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
                     alert('請求超時');
                     setTimeout(function () {
                         alert('重新请求');
@@ -134,12 +142,12 @@ jQuery(document).ready(function($) {
                 'top': finalTop + 'px',
                 'left': finalLeft + 'px',
                 'width': finalWidth + 'px',
-            }, 1000, [400, 20], function() {
+            }, 1000, [400, 20], function () {
                 //animate the quick view: animate its width to the final value
                 $('.cd-quick-view').addClass('animate-width').velocity({
                     'left': quickViewLeft + 'px',
                     'width': quickViewWidth + 'px',
-                }, 300, 'ease', function() {
+                }, 300, 'ease', function () {
                     //show quick view content
                     $('.cd-quick-view').addClass('add-content');
                 });
@@ -150,13 +158,13 @@ jQuery(document).ready(function($) {
                 'top': finalTop + 'px',
                 'left': finalLeft + 'px',
                 'width': finalWidth + 'px',
-            }, 300, 'ease', function() {
+            }, 300, 'ease', function () {
                 $('body').removeClass('overlay-layer');
                 $('.cd-quick-view').removeClass('animate-width').velocity({
                     "top": topSelected,
                     "left": leftSelected,
                     "width": widthSelected,
-                }, 500, 'ease', function() {
+                }, 500, 'ease', function () {
                     $('.cd-quick-view').removeClass('is-visible');
                     parentListItem.removeClass('empty-box');
                 });

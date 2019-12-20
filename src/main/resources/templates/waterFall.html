@@ -20,7 +20,7 @@
 <div id="container-body">
     <div id="total-content">
         <div id="corverage"></div>
-<!--        <div id="alert-corverage" ></div>-->
+        <!--        <div id="alert-corverage" ></div>-->
         <!-- 导航栏 -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -38,12 +38,12 @@
                         <li>
                             <% if(session["user"]!=null) {
                             %>
-                                <a class="text-center" href="/logined" style="color:orange">Welcome，${session["user"].nickname}!</a>
+                            <a class="text-center" href="/logined" style="color:orange">Welcome，${session["user"].nickname}!</a>
                             <%
                             }
                             else{
                             %>
-                                <a class="text-center" href="/loginAndRegister">Login | Register</a>
+                            <a class="text-center" href="/loginAndRegister">Login | Register</a>
                             <%
                             }%>
                         </li>
@@ -53,25 +53,27 @@
         </nav>
         <div class="htmleaf-container cover"></div>
         <!-- 瀑布内容 -->
-        <div id="grid-content" class="container " >
+        <div id="grid-content" class="container ">
             <div class="grid-wrap">
-                <ul class="grid swipe-down loaded cd-items cd-container" id="grid" >
+                <ul class="grid swipe-down loaded cd-items cd-container" id="grid">
                     <%
-                        var articles = session["articles"];
-                        for(article in articles){
+                    if(has(articles)){
+                    for(article in articles){
                     %>
-                    <li class="cd-item" >
-                        <a  href="#/${article.title}" class="cd-trigger">
+                    <li class="cd-item">
+                        <a href="#/${article.title}" class="cd-trigger">
+                            <input type="hidden" id="id" value="${article.id!}">
                             <img src=${article.picture} alt="img01">
                             <h3>${article.title}</h3>
                         </a>
                     </li>
                     <%
-                        }
+                    }
+                    }
                     %>
 
-                    <li class="cd-item" >
-                        <a  href="#/15944679/Kenpo-News-April-2014-issue" class="cd-trigger">
+                    <li class="cd-item">
+                        <a href="#/15944679/Kenpo-News-April-2014-issue" class="cd-trigger">
 
                             <img src="/img/1.jpg" alt="img01">
                             <h3>Kenpo News April 2014 issue</h3>
@@ -94,7 +96,8 @@
                         </a>
                     </li>
                     <li class="cd-item" style="position: absolute; left: 628px; top: 238px;">
-                        <a href="#/11455333/Quarterly-Musashino-autumn-of-2013-issue" class="cd-trigger"><img src="/img/5.jpg" alt="img05">
+                        <a href="#/11455333/Quarterly-Musashino-autumn-of-2013-issue" class="cd-trigger"><img
+                                src="/img/5.jpg" alt="img05">
                             <h3>Quarterly Musashino autumn of 2013 issue</h3>
                         </a>
                     </li>
@@ -119,115 +122,131 @@
                         </a>
                     </li>
                     <li class="cd-item" style="position: absolute; left: 0px; top: 656px;">
-                        <a href="#/15566747/Quarterly-Musashino-spring-of-2014-issue" class="cd-trigger"><img src="/img/10.jpg" alt="img10">
+                        <a href="#/15566747/Quarterly-Musashino-spring-of-2014-issue" class="cd-trigger"><img
+                                src="/img/10.jpg" alt="img10">
                             <h3>Quarterly Musashino spring of 2014 issue</h3>
                         </a>
                     </li>
-                    <li class="cd-item" >
-                        <a href="#/11134427/MAJESTY-express-vol-01" class="cd-trigger"><img src="/img/11.jpg" alt="img11" >
-                            <h3 >MAJESTY express vol. 01</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/13329103/Shitamachi-Rocket" class="cd-trigger"><img src="/img/12.jpg" alt="img12" >
-                            <h3 >Shitamachi Rocket</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item"  >
-                        <a href="#/13285315/Quarterly-Musashino-winter-of-2013-issue" class="cd-trigger"><img src="/img/13.jpg" alt="img13" >
-                            <h3 >Quarterly Musashino winter of 2013 issue</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item"  >
-                        <a href="#/16541811/MAINICHI-CHUUGOKUGO-May-2014" class="cd-trigger"><img src="/img/14.jpg" alt="img14" >
-                            <h3 >MAINICHI CHUUGOKUGO April 2014</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/15944679/Kenpo-News-April-2014-issue" class="cd-trigger"><img src="/img/1.jpg" alt="img01" >
-                            <h3 >Kenpo News April 2014 issue</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/15758125/SQUET-April-2014-issue" class="cd-trigger"><img src="/img/2.jpg" alt="img02" >
-                            <h3 >SQUET April 2014 issue</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/15586227/MONOCLE-issue-72" class="cd-trigger"><img src="/img/3.jpg" alt="img03"  >
-                            <h3 >MONOCLE issue 72</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/11880495/TOWN-Winter-2013" class="cd-trigger"><img src="/img/4.jpg" alt="img04" >
-                            <h3 >TOWN Winter 2013</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/11455333/Quarterly-Musashino-autumn-of-2013-issue" class="cd-trigger"><img src="/img/5.jpg" alt="img05" >
-                            <h3 >Quarterly Musashino autumn of 2013 issue</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/12866129/MONOCLE-issue-69" class="cd-trigger"><img src="/img/6.jpg" alt="img06"  >
-                            <h3  >MONOCLE issue 69</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/16631085/Real-Simple-May-2014" class="cd-trigger"><img src="/img/7.jpg" alt="img07"  >
-                            <h3  >Real Simple May 2014</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/11727343/The-65th-Book-Week" class="cd-trigger"><img src="/img/8.jpg" alt="img08" >
-                            <h3 >The 65th Book Week</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/16631085/Real-Simple-May-2014" class="cd-trigger"><img src="/img/9.jpg" alt="img09" >
-                            <h3 >Real Simple May 2014</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/15566747/Quarterly-Musashino-spring-of-2014-issue" class="cd-trigger"><img src="/img/10.jpg" alt="img10" >
-                            <h3 >Quarterly Musashino spring of 2014 issue</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/11134427/MAJESTY-express-vol-01" class="cd-trigger"><img src="/img/11.jpg" alt="img11" >
-                            <h3 >MAJESTY express vol. 01</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item" >
-                        <a href="#/13329103/Shitamachi-Rocket" class="cd-trigger"><img src="/img/12.jpg" alt="img12"  >
-                            <h3>Shitamachi Rocket</h3>
-                        </a>
-                    </li>
-                    <li class="cd-item"  >
-                        <a href="#/13285315/Quarterly-Musashino-winter-of-2013-issue" class="cd-trigger"><img src="/img/13.jpg" alt="img13"  >
-                            <h3  >Quarterly Musashino winter of 2013 issue</h3>
+                    <li class="cd-item">
+                        <a href="#/11134427/MAJESTY-express-vol-01" class="cd-trigger"><img src="/img/11.jpg"
+                                                                                            alt="img11">
+                            <h3>MAJESTY express vol. 01</h3>
                         </a>
                     </li>
                     <li class="cd-item">
-                        <a href="#/16541811/MAINICHI-CHUUGOKUGO-May-2014" class="cd-trigger"><img src="/img/14.jpg" alt="img14">
-                            <h3 >MAINICHI CHUUGOKUGO April 2014</h3>
+                        <a href="#/13329103/Shitamachi-Rocket" class="cd-trigger"><img src="/img/12.jpg" alt="img12">
+                            <h3>Shitamachi Rocket</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/13285315/Quarterly-Musashino-winter-of-2013-issue" class="cd-trigger"><img
+                                src="/img/13.jpg" alt="img13">
+                            <h3>Quarterly Musashino winter of 2013 issue</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/16541811/MAINICHI-CHUUGOKUGO-May-2014" class="cd-trigger"><img src="/img/14.jpg"
+                                                                                                  alt="img14">
+                            <h3>MAINICHI CHUUGOKUGO April 2014</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/15944679/Kenpo-News-April-2014-issue" class="cd-trigger"><img src="/img/1.jpg"
+                                                                                                 alt="img01">
+                            <h3>Kenpo News April 2014 issue</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/15758125/SQUET-April-2014-issue" class="cd-trigger"><img src="/img/2.jpg"
+                                                                                            alt="img02">
+                            <h3>SQUET April 2014 issue</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/15586227/MONOCLE-issue-72" class="cd-trigger"><img src="/img/3.jpg" alt="img03">
+                            <h3>MONOCLE issue 72</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/11880495/TOWN-Winter-2013" class="cd-trigger"><img src="/img/4.jpg" alt="img04">
+                            <h3>TOWN Winter 2013</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/11455333/Quarterly-Musashino-autumn-of-2013-issue" class="cd-trigger"><img
+                                src="/img/5.jpg" alt="img05">
+                            <h3>Quarterly Musashino autumn of 2013 issue</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/12866129/MONOCLE-issue-69" class="cd-trigger"><img src="/img/6.jpg" alt="img06">
+                            <h3>MONOCLE issue 69</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/16631085/Real-Simple-May-2014" class="cd-trigger"><img src="/img/7.jpg" alt="img07">
+                            <h3>Real Simple May 2014</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/11727343/The-65th-Book-Week" class="cd-trigger"><img src="/img/8.jpg" alt="img08">
+                            <h3>The 65th Book Week</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/16631085/Real-Simple-May-2014" class="cd-trigger"><img src="/img/9.jpg" alt="img09">
+                            <h3>Real Simple May 2014</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/15566747/Quarterly-Musashino-spring-of-2014-issue" class="cd-trigger"><img
+                                src="/img/10.jpg" alt="img10">
+                            <h3>Quarterly Musashino spring of 2014 issue</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/11134427/MAJESTY-express-vol-01" class="cd-trigger"><img src="/img/11.jpg"
+                                                                                            alt="img11">
+                            <h3>MAJESTY express vol. 01</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/13329103/Shitamachi-Rocket" class="cd-trigger"><img src="/img/12.jpg" alt="img12">
+                            <h3>Shitamachi Rocket</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/13285315/Quarterly-Musashino-winter-of-2013-issue" class="cd-trigger"><img
+                                src="/img/13.jpg" alt="img13">
+                            <h3>Quarterly Musashino winter of 2013 issue</h3>
+                        </a>
+                    </li>
+                    <li class="cd-item">
+                        <a href="#/16541811/MAINICHI-CHUUGOKUGO-May-2014" class="cd-trigger"><img src="/img/14.jpg"
+                                                                                                  alt="img14">
+                            <h3>MAINICHI CHUUGOKUGO April 2014</h3>
                         </a>
                     </li>
                 </ul>
 
                 <div class="cd-quick-view">
                     <div class="cd-slider-wrapper">
-                         <ul class="cd-slider">
+                        <ul class="cd-slider">
                             <li class="selected"><img src="" alt="Product 1"></li>
-                         </ul>
+                        </ul>
                     </div>
 
                     <div class="cd-item-info" id="alert-box">
+                        <input type="hidden"/>
                         <h2>Produt Title</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione. Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste repellendus similique reiciendis, maxime laborum praesentium.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, omnis illo iste ratione.
+                            Numquam eveniet quo, ullam itaque expedita impedit. Eveniet, asperiores amet iste
+                            repellendus similique reiciendis, maxime laborum praesentium.</p>
 
                         <ul class="cd-item-action">
-                            <li><button class="add-to-cart">Add to cart</button></li>
+                            <li>
+                                <button class="add-to-cart">Add to cart</button>
+                            </li>
                             <li><span>date and author</span></li>
                         </ul>
                         <!-- cd-item-action -->
@@ -265,26 +284,26 @@
         viewportFactor: 0.4
     });
 </script>
-<script>
-    $(document).ready(function() {
-        window.GRADIENTS = [{
-            start: [49, 76, 172],
-            stop: [242, 159, 191]
-        }, {
-            start: [255, 103, 69],
-            stop: [240, 154, 241]
-        }, {
-            start: [33, 229, 241],
-            stop: [235, 236, 117]
-        }]
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        window.GRADIENTS = [{-->
+<!--            start: [49, 76, 172],-->
+<!--            stop: [242, 159, 191]-->
+<!--        }, {-->
+<!--            start: [255, 103, 69],-->
+<!--            stop: [240, 154, 241]-->
+<!--        }, {-->
+<!--            start: [33, 229, 241],-->
+<!--            stop: [235, 236, 117]-->
+<!--        }]-->
 
 
-        $(".cover").gradientify({
-            gradients: window.GRADIENTS,
-            angle: "90deg"
-        });
-    });
-</script>
+<!--        $(".cover").gradientify({-->
+<!--            gradients: window.GRADIENTS,-->
+<!--            angle: "90deg"-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 
 </body>
 </html>
