@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 @Controller
@@ -33,10 +35,14 @@ public class FSController {
     private IFavoriteService favoriteService;
 
     @RequestMapping("/")
-    public String visitWaterFallPage(HttpServletRequest request, Model model) {
+    public String visitWaterFallPage(HttpServletRequest request, Model model) throws UnknownHostException {
         //从数据库加载
         List<Article> articles = iPostArticle.selectArticle();
         model.addAttribute("articles", articles);
+
+        InetAddress ip = InetAddress.getLocalHost();
+        System.out.println("第二种方式"+ip.getHostAddress());
+
         return "waterFall.html";
     }
 
@@ -65,11 +71,8 @@ public class FSController {
     @ResponseBody
     public JSONObject ajaxCallBack(@RequestBody JSONObject article, HttpServletRequest request) {
         String id = article.get("id").toString();
-//        System.out.println("pic："+picurl);
         Article data = iPostArticle.getById(id);
         JSONObject result = new JSONObject();
-//        System.out.println(data.getAuthor());
-//        System.out.println(data.getDate());
         result.put("status", 200);
         result.put("data", data);
         result.put("alreadyAdded", false);
@@ -81,6 +84,13 @@ public class FSController {
             }
         }
         return result;
+    }
+
+    @RequestMapping("/logout")
+    public String  logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.setAttribute("user",null);
+        return "redirect:/";
     }
 
 }

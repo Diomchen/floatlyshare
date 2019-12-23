@@ -30,5 +30,20 @@
         where
         f.user_id = #{userId} and a.id = f.article_id
     </select>
+    <select id="getAllArticleByUserId" resultType="com.fsproject.floatlyshare.bean.Article">
+        select
+        a.*
+        from
+        article as a,user as u
+        where
+        u.id = #{id} and a.author = u.nickname
+    </select>
+    <delete id="deleteFavoriteByArticleId">
+        delete
+        from
+        favorite
+        where
+        article_id = #{articleId} and user_id = #{userId}
+    </delete>
 
 </mapper>

@@ -47,7 +47,7 @@
 
     <meta content="width=device-width,initial-scale=1" name="viewport">
 
-    <link href="../a_data/css" rel="stylesheet">
+<!--    <link href="../a_data/css" rel="stylesheet">-->
 
     <link rel="stylesheet" type="text/css" href="../a_data/bootstrap-3.css">
     <link rel="stylesheet" type="text/css" href="../a_data/font-awesome.css">
@@ -105,7 +105,7 @@
                     </li>
                     <li class="nav-btn folio-btn" data-filter="*" title="Portfolio" data-page="portfolio">
                         <div class="hover-background"></div>
-                        <span>Favorite</span><i class="fa fa-file-text fa-fw"></i>
+                        <span>Article manager</span><i class="fa fa-file-text fa-fw"></i>
                     </li>
                     <li class="nav-btn" title="Contact" id="contact-link" data-page="contact">
                         <div class="hover-background"></div>
@@ -170,13 +170,13 @@
                 <li id="portfolio" class="hidden">
                     <div class="title-container">
                         <div class="shadow-img"></div>
-                        <h2 class="rotate-out rotated">Favorite</h2>
+                        <h2 class="rotate-out rotated">Article manager</h2>
                     </div>
 
                     <div class="abs-child">
                         <ul class="button-group filters-button-group">
-<!--                            <li class="button is-checked" data-filter="*">Show All</li>-->
-<!--                            <li class="button" data-filter=".photography">Photography</li>-->
+                            <li class="button" data-filter=".favorite">Favorite</li>
+                            <li class="button" data-filter=".create_self">Create-self</li>
 <!--                            <li class="button" data-filter=".commercial">Commercial</li>-->
 <!--                            <li class="button" data-filter=".potrait">Potrait</li>-->
                         </ul>
@@ -185,75 +185,41 @@
                         <div class="row">
 
                             <div class="folio-container">
-                                <ul class="folio-item" style="position: relative; height: 1216px;">
-                                    <% if(has(articles)){
+                                <ul class="folio-item">
+                                    <%
+                                    if(has(articles)){
                                     for(article in articles){ %>
-                                    <li class="view view-first photography"
+                                    <li class="view view-first favorite"
                                         style="position: absolute; left: 0px; top: 0px;">
                                         <img src="${article.picture!}" alt="articles">
                                         <div class="mask">
-                                            <h2>${article.title!}</h2>
+                                            <h2 style="width: 100px;height:30px;overflow: hidden">${article.title!}</h2>
 
                                             <a role="button" class="info"  data-target="#myModal"
-                                               onclick="Detail('${article.title!}','${article.picture!}','${article.content!}')">Read
+                                               onclick='Detail("${article.title!}","${article.picture!}","${article.content!}","${article.id!}",0)'>Read
                                                 More</a>
                                         </div>
                                     </li>
                                     <%
                                     }
                                     } %>
-                                    <!--                                        <li class="view view-second commercial" style="position: absolute; left: 0px; top: 152px;">-->
-                                    <!--                                            <img src="../a_data/book.jfif" alt="book">-->
-                                    <!--                                            <div class="mask"></div>-->
-                                    <!--                                            <div class="content">-->
-                                    <!--                                                <h2>Hover Style #2</h2>-->
-                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal2">Read More</a>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </li>-->
-                                    <!--                                        <li class="view view-tenth photography" style="position: absolute; left: 0px; top: 304px;">-->
-                                    <!--                                            <img src="../a_data/beach.jfif" alt="beach">-->
-                                    <!--                                            <div class="mask">-->
-                                    <!--                                                <h2>New York</h2>-->
-                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal5">Read More</a>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </li>-->
-                                    <!--                                        <li class="view view-second commercial" style="position: absolute; left: 0px; top: 456px;">-->
-                                    <!--                                            <img src="../a_data/guy.jfif" alt="guy">-->
-                                    <!--                                            <div class="mask"></div>-->
-                                    <!--                                            <div class="content">-->
-                                    <!--                                                <h2>Image Name</h2>-->
-                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal3">Read More</a>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </li>-->
-                                    <!--                                        <li class="view view-first potrait" style="position: absolute; left: 0px; top: 608px;">-->
-                                    <!--                                            <img src="../a_data/illustration.jfif" alt="illustration">-->
-                                    <!--                                            <div class="mask">-->
-                                    <!--                                                <h2>New York</h2>-->
-                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal4">Read More</a>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </li>-->
-                                    <!--                                        <li class="view view-second photography" style="position: absolute; left: 0px; top: 760px;">-->
-                                    <!--                                            <img src="../a_data/guy.jfif" alt="guy">-->
-                                    <!--                                            <div class="mask"></div>-->
-                                    <!--                                            <div class="content">-->
-                                    <!--                                                <h2>Image Name</h2>-->
-                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal3">Read More</a>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </li>-->
-                                    <!--                                        <li class="view view-tenth potrait" style="position: absolute; left: 0px; top: 912px;">-->
-                                    <!--                                            <img src="../a_data/logs.jfif" alt="logs">-->
-                                    <!--                                            <div class="mask">-->
-                                    <!--                                                <h2>woodsman</h2>-->
-                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal">Read More</a>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </li>-->
-                                    <!--                                        <li class="view view-tenth commercial" style="position: absolute; left: 0px; top: 1064px;">-->
-                                    <!--                                            <img src="../a_data/beach.jfif" alt="beach">-->
-                                    <!--                                            <div class="mask">-->
-                                    <!--                                                <h2>New York</h2>-->
-                                    <!--                                                <a role="button" class="info" data-toggle="modal" data-target="#myModal5">Read More</a>-->
-                                    <!--                                            </div>-->
-                                    <!--                                        </li>-->
+
+                                    <%
+                                    if(has(selfCreateArticles)){
+                                    for(selfCA in selfCreateArticles){ %>
+                                    <li class="view view-second create_self">
+                                        <img src="${selfCA.picture!}" alt="selfCA">
+                                        <div class="mask">
+                                            <h2 style="width: 100px;height:30px;overflow: hidden">${selfCA.title!}</h2>
+
+                                            <a role="button" class="info"  data-target="#myModal1"
+                                               onclick='Detail("${selfCA.title!}","${selfCA.picture!}","${selfCA.content!}","${selfCA.id!}",1)'>Read
+                                                More</a>
+                                        </div>
+                                    </li>
+                                    <%
+                                    }
+                                    } %>
                                 </ul>
                             </div>
 
@@ -359,6 +325,7 @@
         <input type="hidden" id="modal_title">
         <input type="hidden" id="modal_picture">
         <input type="hidden" id="modal_content">
+        <input type="hidden" id="modal_delete">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -374,64 +341,30 @@
                         Reprehenderit, ut quis corporis laudantium, laborum sed omnis qui perspiciatis explicabo. Ipsum
                         culpa aspernatur dolorem. Amet, quis.</p>
                 </div>
+                <input id="delete_btn" class="btn btn-danger" type="button" data-articleId="0" data-userId = "0" value="取消收藏" onclick="Delete()"/>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
     <div class="modal-dialog">
+        <input type="hidden" id="modal_title_1">
+        <input type="hidden" id="modal_picture_1">
+        <input type="hidden" id="modal_content_1">
+        <input type="hidden" id="modal_delete_1">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myModalLabel4">Hover Style</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel2">Hover Style</h4>
             </div>
             <div class="modal-body">
+                <img src="a_data/book.jfif" class="img-responsive" alt="modal-image">
             </div>
             <div class="modal-footer">
                 <div class="mf-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ab id unde veniam error et
-                        iste ut aspernatur accusantium porro molestiae voluptatibus rem, tempore inventore ad minus
-                        soluta praesentium magni?</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel sapiente, odit, illo saepe voluptate eos enim eius autem cumque ab, soluta dolor tempore inventore eligendi maxime voluptas pariatur explicabo blanditiis?</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myModalLabel5">Hover Style</h4>
-            </div>
-            <div class="modal-body">
-                <img src="../a_data/beach.jfif" class="img-responsive" alt="modal-image">
-            </div>
-            <div class="modal-footer">
-                <div class="mf-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam amet placeat porro, maxime
-                        corrupti laboriosam, quod nulla perferendis esse ipsa atque deleniti. Magni molestias, nemo
-                        illum eos, exercitationem neque incidunt.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="subscribe_modal_1" tabindex="-1" role="dialog" aria-labelledby="subscribe_modal_1"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">×</span></button>
-                <h2 class="modal-title">Thank You</h2>
-            </div>
-            <div class="modal-body">
-                <div class="text-center mail-sucsess">
-                    <h3><span>your mail has been sent</span></h3>
-                </div>
+                <input id="delete_btn_1" class="btn btn-danger" type="button" data-articleId="0" data-userId = "0" value="取消收藏" onclick="Delete()"/>
             </div>
         </div>
     </div>
@@ -512,21 +445,97 @@
 <script type="text/javascript" src="../a_data/bootstrap.js"></script>
 <script>
     //绑定模态框展示的方法
-    window.Detail = function (title,picture,content) {
-        $("#modal_title").val(title);
-        $("#modal_picture").val(picture);
-        $("#modal_content").val(content);
-        $('#myModal').modal('show');
+    window.Detail = function (title,picture,content,id,li_tag) {
+        alert(li_tag);
+        if(li_tag == 0){
+            $("#modal_title").val(title);
+            $("#modal_picture").val(picture);
+            $("#modal_content").val(content);
+            $("#modal_delete").val(id);
+            $('#myModal').modal('show');
+        }
+        else if (li_tag == 1){
+            $("#modal_title_1").val(title);
+            $("#modal_picture_1").val(picture);
+            $("#modal_content_1").val(content);
+            $("#modal_delete_1").val(id);
+            $('#myModal2').modal('show');
+        }
     };
     $('#myModal').on('show.bs.modal', function (event) {
         var modal_title = $("#modal_title").val();
         var modal_picture = $("#modal_picture").val();
         var modal_content = $("#modal_content").val();
+        var modal_delete = $("#modal_delete").val();
         var modal = $(this);  //get modal itself
         modal.find('.modal-header h4').text(modal_title);
         modal.find('.modal-body img').attr("src", modal_picture);
         modal.find('.modal-footer p').text(modal_content);
+        modal.find('.modal-footer input').attr("data-articleId",modal_delete);
     });
+    $('#myModal2').on('show.bs.modal', function (event) {
+        var modal_title = $("#modal_title_1").val();
+        var modal_picture = $("#modal_picture_1").val();
+        var modal_content = $("#modal_content_1").val();
+        var modal_delete = $("#modal_delete_1").val();
+        var modal = $(this);  //get modal itself
+        modal.find('.modal-header h4').text(modal_title);
+        modal.find('.modal-body img').attr("src", modal_picture);
+        modal.find('.modal-footer p').text(modal_content);
+        modal.find('.modal-footer input').attr("data-articleId",modal_delete);
+    });
+    window.Delete = function () {
+        var list = {
+            articleId:$("#delete_btn").attr("data-articleId")
+        };
+        delete_setting = {
+            url: '/favorite/delete',
+            data: JSON.stringify(list),
+            contentType: 'application/json;charset=UTF-8',
+            type: 'POST',
+            success:function (res) {
+                if(res.status == 200) {
+                    alert("取消成功！");
+                    window.location.reload();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    alert('请求超时');
+                    setTimeout(function () {
+                        alert('重新请求');
+                    }, 2000);
+                }
+            }
+        };
+        $.ajax(delete_setting)
+    }
+    window.Delete = function () {
+        var list = {
+            articleId:$("#delete_btn_1").attr("data-articleId")
+        };
+        delete_setting = {
+            url: '/favorite/delete',
+            data: JSON.stringify(list),
+            contentType: 'application/json;charset=UTF-8',
+            type: 'POST',
+            success:function (res) {
+                if(res.status == 200) {
+                    alert("取消成功！");
+                    window.location.reload();
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    alert('请求超时');
+                    setTimeout(function () {
+                        alert('重新请求');
+                    }, 2000);
+                }
+            }
+        };
+        $.ajax(delete_setting)
+    }
 </script>
 <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;">
     <span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span>

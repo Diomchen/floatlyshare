@@ -43,8 +43,10 @@ public class LoginAndRegist {
         session.setAttribute("user", user);
         if (isLoginSuccess) {
             model.addAttribute("user", user);
+            List<Article> selfCreateArticles = favoriteService.getAllArticleByUserId(user.getId());
             List<Article> articles = favoriteService.getArticlesByUserId(user.getId());
             model.addAttribute("articles", articles);
+            model.addAttribute("selfCreateArticles",selfCreateArticles);
             return "UserManager.html";
         } else {
             return "error.html";

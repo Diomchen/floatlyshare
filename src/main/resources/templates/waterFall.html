@@ -34,11 +34,14 @@
                 </div>
 
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
+                    <ul class="nav navbar-nav navbar-right ">
+                        <li class="row">
                             <% if(session["user"]!=null) {
                             %>
-                            <a class="text-center" href="/logined" style="color:orange">Welcome，${session["user"].nickname}!</a>
+<!--                            <div class="row align-items-center">-->
+                                <a class="col text-center" href="/logined" style="color:orange;display: inline-block">Welcome，${session["user"].nickname}!</a>
+                                <a class="col text-center" href="/logout" style="display: inline-block">注销</a>
+<!--                            </div>-->
                             <%
                             }
                             else{
