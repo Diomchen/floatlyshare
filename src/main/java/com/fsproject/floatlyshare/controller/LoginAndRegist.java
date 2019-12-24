@@ -29,7 +29,7 @@ public class LoginAndRegist {
         boolean isInsertSuccess = userService.insertUser(newUser);
 
         if (isInsertSuccess)
-            return "success.html";
+            return "loginandregister.html";
         else
             return "error.html";
     }

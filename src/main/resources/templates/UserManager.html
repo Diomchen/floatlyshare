@@ -104,7 +104,7 @@
                         <div class="hover-background"></div>
                         <span>Info</span><i class="fa fa-user fa-fw"></i>
                     </li>
-                    <li class="nav-btn " title="map" data-page="resume">
+                    <li class="nav-btn " title="map" data-page="resume"  >
                         <div class="hover-background"></div>
                         <span>Map show</span><i class="fa fa-address-card fa-fw"></i>
                     </li>
@@ -165,7 +165,6 @@
                         <h2 class="rotate-out rotated"><span class="invert">Map Show</span></h2>
                     </div>
                     <div class="description" id="map_container">
-<!--                        ==================================加地图-->
                     </div>
                 </li>
 
@@ -542,49 +541,85 @@
 
     //高德api新建地图
     window.onLoad  = function(){
-        var map = new AMap.Map('map_container',{
-            resizeEnable:true,
-            pitch:60,
-            viewMode:'3D'
-        });
+        var posX = null;
+        var posY = null;
+        var pictures = null;
+        var list = {
+            a:''
+        }
+        var getPosAndImage_setting = {
+            url: '/favorite/getPosAndImg',
+            data:JSON.stringify(list),
+            contentType: 'application/json;charset=UTF-8',
+            type: 'POST',
+            success:function (res) {
+                if(res.status == 200) {
+                    posX = res.posX;
+                    posY = res.posY;
+                    pictures = res.pictures;
+                    var map = new AMap.Map('map_container',{
+                        resizeEnable:true,
+                        viewMode:'3D',
+                        defaultCursor:'pointer',
+                        zooms:[14,20],
+                        zoom:16,
+                        pitch:60,
+                        rotation:0,
+                        forceVector:true,
+                    });
 
-        AMap.plugin(['AMap.Geolocation','AMap.ControlBar'],function(){
-            //定位插件
-            var geolocation = new AMap.Geolocation({
-                enableHighAccuracy:true,
-                timeout:10000,
-                buttonOffset:new AMap.Pixel(10,20),
-                zoomToAccuracy:true,
-                buttonPosition:'RB'
-            });
-            map.addControl(geolocation);
-            geolocation.getCurrentPosition(function (status,result) {
-                if(status == 'complete'){
-                    console.log(result)
+                    AMap.plugin(['AMap.Geolocation','AMap.ControlBar','AMap.Marker'],function(){
+                        //定位插件
+                        var geolocation = new AMap.Geolocation({
+                            enableHighAccuracy:true,
+                            timeout:10000,
+                            buttonOffset:new AMap.Pixel(10,20),
+                            zoomToAccuracy:true,
+                            buttonPosition:'RB'
+                        });
+                        map.addControl(geolocation);
+                        geolocation.getCurrentPosition(function (status,result) {
+                            if(status == 'complete'){
+                                console.log(result)
+                            }
+                            else{
+                                onError(result);
+                            }
+                        });
+                        //罗盘插件
+                        var controlBar = new AMap.ControlBar({
+                            showZoomBar:true,
+                            showControlButton:true
+                        });
+                        map.addControl(controlBar);
+                        //标记点
+                        for (var i=0 ; i<pictures.length; i++){
+                            var sTr = pictures[i];
+                            content = "<img src="+sTr+" style='width: 20px;height: 35px'>";
+
+                            var marker = new AMap.Marker({
+                                content:content,
+                                position:[posX[i],posY[i]],
+                            });
+
+                            map.add(marker)
+                        }
+                    });
                 }
-                else{
-                    onError(result);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (textStatus === 'timeout') {
+                    alert('请求超时');
+                    setTimeout(function () {
+                        alert('重新请求');
+                    }, 2000);
                 }
-            });
-            //罗盘插件
-            var controlBar = new AMap.ControlBar({
-                    showZoomBar:true,
-                    showControlButton:true
-            });
-            map.addControl(controlBar);
+            }
+        };
+        $.ajax(getPosAndImage_setting);
 
 
-        });
 
-
-        // var marker = new AMap.Marker({
-        //     position: new AMap.LngLat(116.39,39.9),
-        //     offset: new AMap.Pixel(-10, -10),
-        //     icon: '//vdata.amap.com/icons/b18/1/2.png', // 添加 Icon 图标 URL
-        //     title: '北京'
-        // });
-
-        // map.add(marker);
     };
 
 

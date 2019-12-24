@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,6 +17,8 @@ import java.util.Date;
 
 @TableName("article")
 @Data
+//@Builder
+//@AllArgsConstructor
 public class Article extends Model<Article> {
     @TableId(value = "id", type = IdType.AUTO)
     private int id;
@@ -33,24 +37,4 @@ public class Article extends Model<Article> {
         return this.id;
     }
 
-
-    public Article(String title, String content, String picture, String author) {
-        this.title = title;
-        this.content = content;
-        this.picture = picture;
-        this.author = author;
-        this.date = new Date();
-        this.x=null;
-        this.y=null;
-    }
-
-    public Article(String title, String content, String picture, String author,BigDecimal x,BigDecimal y) {
-        this.title = title;
-        this.content = content;
-        this.picture = picture;
-        this.author = author;
-        this.date = new Date();
-        this.x = x;
-        this.y = y;
-    }
 }
