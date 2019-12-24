@@ -10,6 +10,7 @@
 <!--<![endif]-->
 
 <head>
+    <link rel="icon" href="../img/bitbug_favicon.ico" type="image/x-icon">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <style>
         .gm-style-pbc {
@@ -103,7 +104,11 @@
                         <div class="hover-background"></div>
                         <span>Info</span><i class="fa fa-user fa-fw"></i>
                     </li>
-                    <li class="nav-btn folio-btn" data-filter="*" title="Portfolio" data-page="portfolio">
+                    <li class="nav-btn " title="map" data-page="resume">
+                        <div class="hover-background"></div>
+                        <span>Map show</span><i class="fa fa-address-card fa-fw"></i>
+                    </li>
+                    <li class="nav-btn folio-btn" data-filter=".favorite" title="Portfolio" data-page="portfolio">
                         <div class="hover-background"></div>
                         <span>Article manager</span><i class="fa fa-file-text fa-fw"></i>
                     </li>
@@ -157,12 +162,10 @@
                 <li id="resume" class="hidden">
                     <div class="title-container">
                         <div class="shadow-img"></div>
-                        <h2 class="rotate-out rotated"><span class="invert">Like</span></h2>
+                        <h2 class="rotate-out rotated"><span class="invert">Map Show</span></h2>
                     </div>
-                    <div class="description">
-                        <div class="tabs tabs_animate">
-                            <!--                                +++++++++++++++++++++++++++++++++++++++++++++这里不知道加什么功能-->
-                        </div>
+                    <div class="description" id="map_container">
+<!--                        ==================================加地图-->
                     </div>
                 </li>
 
@@ -177,8 +180,6 @@
                         <ul class="button-group filters-button-group">
                             <li class="button" data-filter=".favorite">Favorite</li>
                             <li class="button" data-filter=".create_self">Create-self</li>
-<!--                            <li class="button" data-filter=".commercial">Commercial</li>-->
-<!--                            <li class="button" data-filter=".potrait">Potrait</li>-->
                         </ul>
                     </div>
                     <div class="sec-porfolio description">
@@ -207,12 +208,12 @@
                                     <%
                                     if(has(selfCreateArticles)){
                                     for(selfCA in selfCreateArticles){ %>
-                                    <li class="view view-second create_self">
+                                    <li class="view view-first create_self" >
                                         <img src="${selfCA.picture!}" alt="selfCA">
                                         <div class="mask">
                                             <h2 style="width: 100px;height:30px;overflow: hidden">${selfCA.title!}</h2>
 
-                                            <a role="button" class="info"  data-target="#myModal1"
+                                            <a role="button" class="info"  data-target="#myModal2"
                                                onclick='Detail("${selfCA.title!}","${selfCA.picture!}","${selfCA.content!}","${selfCA.id!}",1)'>Read
                                                 More</a>
                                         </div>
@@ -346,7 +347,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <input type="hidden" id="modal_title_1">
         <input type="hidden" id="modal_picture_1">
@@ -354,17 +355,20 @@
         <input type="hidden" id="modal_delete_1">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title" id="myModalLabel2">Hover Style</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabe2">Hover Style</h4>
             </div>
             <div class="modal-body">
-                <img src="a_data/book.jfif" class="img-responsive" alt="modal-image">
+                <img src="../a_data/guy.jfif" class="img-responsive" alt="modal-image">
             </div>
             <div class="modal-footer">
                 <div class="mf-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel sapiente, odit, illo saepe voluptate eos enim eius autem cumque ab, soluta dolor tempore inventore eligendi maxime voluptas pariatur explicabo blanditiis?</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ratione quae, alias at.
+                        Reprehenderit, ut quis corporis laudantium, laborum sed omnis qui perspiciatis explicabo. Ipsum
+                        culpa aspernatur dolorem. Amet, quis.</p>
                 </div>
-                <input id="delete_btn_1" class="btn btn-danger" type="button" data-articleId="0" data-userId = "0" value="取消收藏" onclick="Delete()"/>
+                <input id="delete_btn_1" class="btn btn-danger" type="button" data-articleId="0" data-userId = "0" value="删除动态" onclick="Delete()"/>
             </div>
         </div>
     </div>
@@ -374,7 +378,7 @@
 <script type="text/javascript" src="../a_data/jquery_002.js"></script>
 <script type="text/javascript" src="../a_data/progressbar.js"></script>
 <script type="text/javascript" src="../a_data/jquery_003.js"></script>
-
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=2d057c7f1636a1551c08ce7048d6ad63"></script>
 <script src="../a_data/js"></script>
 <script type="text/javascript" src="../a_data/isotope.js"></script>
 <script type="text/javascript" src="../a_data/custom.js"></script>
@@ -417,9 +421,9 @@
                                 success: function (response) {
                                     var res = JSON.parse(response);
                                     var url = (!!res.data && res.data.url) || res.images;
-                                    $(".file").parent().css('background', 'url(' + url.toString() + ') 0% 0% / cover');
+                                    $(".file").parent().css('background', 'url(' + url + ') 0% 0% / cover');
                                     // $('.url').innerText = url.toString();
-                                    $(".file").parent().nextAll()[1].children[0].value = url.toString();
+                                    $(".file").parent().nextAll()[1].children[0].value = url;
                                     // console.log();
                                     img3.setSpan('.file');
                                 },
@@ -446,7 +450,6 @@
 <script>
     //绑定模态框展示的方法
     window.Detail = function (title,picture,content,id,li_tag) {
-        alert(li_tag);
         if(li_tag == 0){
             $("#modal_title").val(title);
             $("#modal_picture").val(picture);
@@ -515,13 +518,13 @@
             articleId:$("#delete_btn_1").attr("data-articleId")
         };
         delete_setting = {
-            url: '/favorite/delete',
+            url: '/favorite/deleteArticle',
             data: JSON.stringify(list),
             contentType: 'application/json;charset=UTF-8',
             type: 'POST',
             success:function (res) {
                 if(res.status == 200) {
-                    alert("取消成功！");
+                    alert("删除成功！");
                     window.location.reload();
                 }
             },
@@ -536,6 +539,61 @@
         };
         $.ajax(delete_setting)
     }
+
+    //高德api新建地图
+    window.onLoad  = function(){
+        var map = new AMap.Map('map_container',{
+            resizeEnable:true,
+            pitch:60,
+            viewMode:'3D'
+        });
+
+        AMap.plugin(['AMap.Geolocation','AMap.ControlBar'],function(){
+            //定位插件
+            var geolocation = new AMap.Geolocation({
+                enableHighAccuracy:true,
+                timeout:10000,
+                buttonOffset:new AMap.Pixel(10,20),
+                zoomToAccuracy:true,
+                buttonPosition:'RB'
+            });
+            map.addControl(geolocation);
+            geolocation.getCurrentPosition(function (status,result) {
+                if(status == 'complete'){
+                    console.log(result)
+                }
+                else{
+                    onError(result);
+                }
+            });
+            //罗盘插件
+            var controlBar = new AMap.ControlBar({
+                    showZoomBar:true,
+                    showControlButton:true
+            });
+            map.addControl(controlBar);
+
+
+        });
+
+
+        // var marker = new AMap.Marker({
+        //     position: new AMap.LngLat(116.39,39.9),
+        //     offset: new AMap.Pixel(-10, -10),
+        //     icon: '//vdata.amap.com/icons/b18/1/2.png', // 添加 Icon 图标 URL
+        //     title: '北京'
+        // });
+
+        // map.add(marker);
+    };
+
+
+    var url = 'https://webapi.amap.com/maps?v=1.4.15&key=2d057c7f1636a1551c08ce7048d6ad63&callback=onLoad';
+    var jsapi = document.createElement('script');
+    jsapi.charset = 'utf-8';
+    jsapi.src = url;
+    document.head.appendChild(jsapi);
+
 </script>
 <div style="position: absolute; left: 0px; top: -2px; height: 1px; overflow: hidden; visibility: hidden; width: 1px;">
     <span style="position: absolute; font-size: 300px; width: auto; height: auto; margin: 0px; padding: 0px; font-family: Roboto, Arial, sans-serif;">BESbswy</span>

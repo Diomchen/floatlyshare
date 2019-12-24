@@ -14,6 +14,7 @@ import org.beetl.core.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,10 +40,6 @@ public class FSController {
         //从数据库加载
         List<Article> articles = iPostArticle.selectArticle();
         model.addAttribute("articles", articles);
-
-        InetAddress ip = InetAddress.getLocalHost();
-        System.out.println("第二种方式"+ip.getHostAddress());
-
         return "waterFall.html";
     }
 
@@ -62,7 +59,9 @@ public class FSController {
         if (user != null) {
             model.addAttribute("user", user);
             List<Article> articles = favoriteService.getArticlesByUserId(user.getId());
+            List<Article> selfCreateArticles = favoriteService.getAllArticleByUserId(user.getId());
             model.addAttribute("articles", articles);
+            model.addAttribute("selfCreateArticles",selfCreateArticles);
         }
         return "UserManager.html";
     }

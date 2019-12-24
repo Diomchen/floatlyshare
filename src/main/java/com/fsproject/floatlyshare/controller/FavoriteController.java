@@ -51,7 +51,24 @@ public class FavoriteController {
         if (user != null) {
             String articleId = param.get("articleId").toString();
             boolean isDelete = favoriteService.deleteFavoriteByArticleId(Integer.valueOf(articleId),user.getId());
-            System.out.println(isDelete);
+            if (isDelete) {
+                result.put("status", 200);
+            } else {
+                result.put("status", 201);
+            }
+        }
+        return result;
+    }
+
+    @RequestMapping("/deleteArticle")
+    @ResponseBody
+    public Object deleteArticle(@RequestBody JSONObject param, Model model, HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("user");
+        JSONObject result = new JSONObject();
+        result.put("status", 0);
+        if (user != null) {
+            String articleId = param.get("articleId").toString();
+            boolean isDelete = favoriteService.deleteArticleByArticleId(Integer.valueOf(articleId));
             if (isDelete) {
                 result.put("status", 200);
             } else {

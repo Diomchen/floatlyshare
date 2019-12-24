@@ -34,4 +34,10 @@ public class FavoriteServiceImpl extends ServiceImpl<IFavoriteMapper, Favorite> 
     public List<Article> getAllArticleByUserId(int id) {
         return this.baseMapper.getAllArticleByUserId(id);
     }
+
+    @Override
+    public boolean deleteArticleByArticleId(int articleId) {
+       return this.baseMapper.deleteArticleByArticleId(articleId);
+    }
+
 }

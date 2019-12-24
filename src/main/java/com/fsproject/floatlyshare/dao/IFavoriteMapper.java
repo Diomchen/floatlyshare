@@ -17,4 +17,6 @@ public interface IFavoriteMapper extends BaseMapper<Favorite> {
     boolean deleteFavoriteByArticleId(int articleId,int userId);
 
     List<Article> getAllArticleByUserId(int id);
+
+    boolean deleteArticleByArticleId(int articleId);
 }

@@ -9,6 +9,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,13 +25,14 @@ public class Article extends Model<Article> {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private Date date;
-
-
+    private BigDecimal x;
+    private BigDecimal y;
 
     @Override
     protected Serializable pkVal() {
         return this.id;
     }
+
 
     public Article(String title, String content, String picture, String author) {
         this.title = title;
@@ -38,5 +40,17 @@ public class Article extends Model<Article> {
         this.picture = picture;
         this.author = author;
         this.date = new Date();
+        this.x=null;
+        this.y=null;
+    }
+
+    public Article(String title, String content, String picture, String author,BigDecimal x,BigDecimal y) {
+        this.title = title;
+        this.content = content;
+        this.picture = picture;
+        this.author = author;
+        this.date = new Date();
+        this.x = x;
+        this.y = y;
     }
 }

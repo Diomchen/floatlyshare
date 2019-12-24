@@ -16,4 +16,6 @@ public interface IFavoriteService extends IService<Favorite> {
     boolean deleteFavoriteByArticleId(int articleId,int userId);
 
     List<Article> getAllArticleByUserId(int id);
+
+    boolean deleteArticleByArticleId(int articleId);
 }

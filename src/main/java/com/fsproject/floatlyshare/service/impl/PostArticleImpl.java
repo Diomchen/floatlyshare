@@ -26,8 +26,9 @@ public class PostArticleImpl extends ServiceImpl<PostArticleMapper, Article> imp
 
     @Override
     public List<Article> selectArticle() {
-
+        System.out.println("out");
         List<Article> articles = postArticleMapper.selectList(null);
+        System.out.println("outsd");
         return articles;
     }
 
